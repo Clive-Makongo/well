@@ -1,9 +1,9 @@
 "use client"
 import { useState, useCallback, useEffect, createContext, useContext, ReactNode } from "react";
 import { useWindowSize } from "@/utils/useWindowSize";
-import { useMealGenerate, MealImage, MealType, ApiResponse, NutritionalInfo } from "@/hooks/useMealGenerate";
-import { useMealNutrition } from "@/hooks/useMealNutrition";
-import { MealID } from "@/hooks/useMealGenerate";
+import { useMealGenerate, MealImage, MealType, ApiResponse, NutritionalInfo } from "@/hooks/use-meal-generate";
+import { useMealNutrition } from "@/hooks/use-meal-nutirition";
+import { MealID } from "@/hooks/use-meal-generate";
 
 const MEALS = ["breakfast", "lunch", "dinner"] as const;
 const MOBILE_BREAKPOINT = 768;
@@ -97,7 +97,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
             setIsLoading(true);
             setError(null);
 
-            const response = await generateMeals(Number(2000), 'keto');
+            const response = await generateMeals(Number(caloriesSet), dietSet);
 
             console.log("RESPONSE :", response);
 
@@ -126,11 +126,11 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     }, [mealId, getMealNutrients]);
 
     useEffect(() => {
-        //console.log("Updated mealType:", mealType);
+        console.log("Updated mealType:", caloriesSet, dietSet);
         //console.log("Updated nutrition:", nutrition);
         //console.log("Updated images:", mealImage);
-        console.log("GET MEAL NUTRIENTS: ", mealNutrition);
-    }, [mealType, nutrition, mealImage]);
+        //console.log("GET MEAL NUTRIENTS: ", mealNutrition);
+    }, [mealType, nutrition, mealImage, caloriesSet, dietSet]);
 
     const value = {
         caloriesSet,

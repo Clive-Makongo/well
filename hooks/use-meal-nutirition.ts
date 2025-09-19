@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useCallback, useEffect, useMemo } from "react";
-import { useMealGenerate } from "@/hooks/useMealGenerate";
-import { MealID } from "@/hooks/useMealGenerate";
+import { useMealGenerate } from "@/hooks/use-meal-generate";
+import { MealID } from "@/hooks/use-meal-generate";
 //import { useMealContext } from "@/components/manual/Context/MealContext";
 
 interface MealNutrition {
@@ -47,7 +47,6 @@ const get = async (mealID: number): {} => {
 }
 
 export const useMealNutrition = () => {
-    const {mealID} = useMealGenerate()
     const [mealNutrition, setMealNutrition] = useState<MealNutrition>({
         breakfast: [],
         lunch: [],
@@ -59,6 +58,7 @@ export const useMealNutrition = () => {
         const nutrients = Object.entries(mealData.nutrients);
         const filtered = nutrients.filter(([key, nutrient]: [string, any]) =>
             nutrient.unit === 'g' && nutrient.name !== "Net Carbohydrates"
+
         );
 
         return {

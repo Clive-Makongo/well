@@ -58,16 +58,8 @@ const InputSection: React.FC<InputSectionProps> = ({
             </div>
 
             {/* Button */}
-            <div className="flex flex-row items-end">
-                <button
-                    onClick={handleGenerateMeal}
-                    disabled={!isFormValid() || isLoading}
-                    className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 
-                   transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed
-                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                    {isLoading ? "Generating..." : "Generate Meals"}
-                </button>
+            <div className="flex flex-row justify-end">
+                
                 <Button
                     onClick={handleGenerateMeal}
                     disabled={!isFormValid() || isLoading}

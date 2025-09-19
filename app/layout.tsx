@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { MealProvider } from "@/context/MealContext";
-import InputSection from "@/components/manual/InputSection";
+import { Geist, Geist_Mono, Cinzel, Lobster_Two } from "next/font/google";
+import { MealProvider } from "@/context/meal-context";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/manual/app-sidebar";
+import InputSection from "@/components/manual/input-section";
+import Link from "next/link";
 import "./globals.css";
+
+const lobster_two = Lobster_Two({
+  variable: "--font-lobster-two",
+  subsets: ["latin"],
+  weight: ["400", "700"]
+})
+
+const cinzel = Cinzel({
+  variable: "--font-geist-sans",
+  subsets: ["latin"]
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +41,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistMono.variable} antialiased `}
         
       >
         <MealProvider>
-          {children}
+          <SidebarProvider>
+            <SidebarTrigger />
+            <AppSidebar/>
+            {children}
+            </SidebarProvider>
         </MealProvider>
       </body>
     </html>
