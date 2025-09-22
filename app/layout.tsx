@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel, Lobster_Two } from "next/font/google";
 import { MealProvider } from "@/context/meal-context";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/manual/app-sidebar";
-import InputSection from "@/components/manual/input-section";
+import { AppSidebar } from "@/components/manual/meal/app-sidebar";
 import Link from "next/link";
 import "./globals.css";
 

@@ -12,7 +12,7 @@ import {
 import Image from "next/image"
 import React, {useState } from 'react'
 import Modal from "react-responsive-modal"
-import Chart from "@/components/manual/chart"
+import Chart from "@/components/manual/meal/chart"
 import 'react-responsive-modal/styles.css';
 
 export interface ChartProps {

@@ -1,6 +1,6 @@
 "use client"
 import { useState, useCallback, useEffect, createContext, useContext, ReactNode } from "react";
-import { useWindowSize } from "@/utils/useWindowSize";
+import { useWindowSize } from "@/hooks/use-window-size";
 import { useMealGenerate, MealImage, MealType, ApiResponse, NutritionalInfo } from "@/hooks/use-meal-generate";
 import { useMealNutrition } from "@/hooks/use-meal-nutirition";
 import { MealID } from "@/hooks/use-meal-generate";

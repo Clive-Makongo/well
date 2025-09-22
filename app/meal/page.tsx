@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import MealSegment from "@/components/manual/meal-segment";
-import InputSection from "@/components/manual/input-section";
+import MealSegment from "@/components/manual/meal/meal-segment";
+import InputSection from "@/components/manual/meal/input-section";
 import { useMealContext } from "@/context/meal-context";
 
 

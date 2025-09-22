@@ -1,0 +1,6 @@
+export { default as cardio } from './cardio.png'
+export { default as lower } from './lower.png'
+export { default as pilates } from './pilates.png'
+export { default as relax } from './relax.png'
+export { default as upper } from './upper.png'
+export { default as yoga_icon } from './yoga_icon.png'
