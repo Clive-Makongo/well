@@ -69,7 +69,6 @@ export const useMealNutrition = () => {
 
 
     const processedChartData = useMemo(() => {
-        console.log("PROCESS : ", mealNutrition)
         if (!mealNutrition?.breakfast?.nutrients) {
             return { value: [], label: [], calories: 0 };
         }
@@ -110,7 +109,6 @@ export const useMealNutrition = () => {
 
 
     const getMealNutrients = useCallback(async (mealId: MealID) => {
-        console.log("MEAL IDDDDDD: ", mealId)
         if (mealId.breakfast != null && mealId.lunch != null && mealId.dinner != null) {
             const [breakfast, lunch, dinner] = await Promise.all([
                 get(mealId.breakfast),
@@ -118,7 +116,6 @@ export const useMealNutrition = () => {
                 get(mealId.dinner)
             ])
 
-            console.log(breakfast, lunch, dinner)
 
             setMealNutrition({
                 breakfast: breakfast,
@@ -129,12 +126,7 @@ export const useMealNutrition = () => {
     }, [])
 
     useEffect(() => {
-        console.log(chartProps)
     }, [processedChartData, chartProps]);
-
-    useEffect(() => {
-        console.log("MEALLLLLLLLL: ", mealNutrition, chartProps);
-    }, [mealNutrition]);
 
     const resetNutrition = useCallback(() => {
         setMealNutrition({

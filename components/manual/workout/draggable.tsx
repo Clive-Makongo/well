@@ -8,15 +8,7 @@ export function Draggable(props) {
   });
   const style = transform ? {
     transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-    } : undefined;
-    
-    useEffect(() => {
-        console.log("Att", attributes)
-        console.log("List", listeners)
-        console.log("Active", active)
-    }, [])
-
-  
+    } : undefined;  
   return (
     <button ref={setNodeRef} style={style} {...listeners} {...attributes}>
       {props.children}

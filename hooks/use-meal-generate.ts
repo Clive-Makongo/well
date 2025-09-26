@@ -63,7 +63,6 @@ export const useMealGenerate = () => {
                 const response = await fetch(`https://api.spoonacular.com/mealplanner/generate?timeFrame=day&targetCalories=${calories}&diet=${diet}&apiKey=${API_KEY}`,);
 
                 const data = await response.json();
-                console.log("Data: ", data, data);
                 setMealType({
                     breakfast: data.meals[0].title,
                     lunch: data.meals[1].title,
@@ -99,11 +98,7 @@ export const useMealGenerate = () => {
             }
         },
         []);
-
-    useEffect(() => {
-        console.log("Meal ID: ", mealId)
-    }, [mealId])
-
+    
     return {
         mealType,
         nutrition,

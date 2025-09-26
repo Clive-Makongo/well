@@ -54,10 +54,6 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     // First API call to get meals
     const { mealType, nutrition, mealImage, mealId, generateMeals, setMealImage } = useMealGenerate();
 
-    useEffect(() => {
-        console.log("USEEEE MEAL ID: ", mealId)
-    }, [mealId])
-
     //second API call to get meal nutrition data
     const { mealNutrition, chartProps, getMealNutrients } = useMealNutrition()
 
@@ -99,8 +95,6 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
 
             const response = await generateMeals(Number(caloriesSet), dietSet);
 
-            console.log("RESPONSE :", response);
-
             if (!validateApiResponse(response)) {
                 throw new MealGenerationError("Invalid API response format");
             }
@@ -124,13 +118,6 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
             getMealNutrients(mealId);
         }
     }, [mealId, getMealNutrients]);
-
-    useEffect(() => {
-        console.log("Updated mealType:", caloriesSet, dietSet);
-        //console.log("Updated nutrition:", nutrition);
-        //console.log("Updated images:", mealImage);
-        //console.log("GET MEAL NUTRIENTS: ", mealNutrition);
-    }, [mealType, nutrition, mealImage, caloriesSet, dietSet]);
 
     const value = {
         caloriesSet,
