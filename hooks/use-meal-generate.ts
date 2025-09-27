@@ -1,6 +1,5 @@
 "use client"
 import { useState, useCallback, useEffect } from "react";
-import caloriesAPI from "@/utils/coloriesAPI";
 export interface MealType {
     breakfast: string;
     lunch: string;

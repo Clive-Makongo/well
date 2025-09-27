@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {StaticImageData} from 'next/image';
 import {DndContext} from '@dnd-kit/core';
 import { workoutOptions } from '@/utils/workout-options';
@@ -23,7 +23,7 @@ interface Displayed {
 interface Container {
     day: string;
     parent: boolean;
-    content: React.ReactNode | null
+    content: [] | null
 }
 
 const CONTAINER: Container[] = [
@@ -42,13 +42,65 @@ const CONTAINER: Container[] = [
 export function Board(): React.ReactNode {
     const [parent, setParent] = useState<Container[]>(CONTAINER);
 
+   const Board = useCallback((): React.ReactElement => {
+    const renderDragElements = () => (
+        workoutOptions.map((drag, index) => (
+            <Draggable
+                key={index}
+                id={index}
+            >
+                <Image
+                    src={drag.Image}
+                    width={30}
+                    height={30}
+                    alt={drag.title}
+                />
+            </Draggable>
+        ))
+    );
+
+    const renderDropZones = () => (
+        parent
+            .filter(box => box.day !== '')
+            .map((box, index) => (
+                <Droppable
+                    key={index}
+                    id={index}
+                >
+                    <div className='h-120 m-3 bg-red-300 w-full'>
+                        {box.day}
+                    </div>
+                </Droppable>
+            ))
+    );
+
+    return (
+        <div className="board-container flex flex-row">
+            <div className="drag-elements-section">
+                {renderDragElements()}
+            </div>
+            <div className="drop-zones-section flex flex-row">
+                {renderDropZones()}
+            </div>
+        </div>
+    );
+   }, [parent]);
+    
     const toggleParent = (id: number) => {
-        console.log(id, parent[id], " Toggle")
+        console.log(id, parent[id], parent, " Toggle")
         setParent(prev =>
             prev.map((day, index) => 
                 id === index ? {...day, parent: !day.parent} : day
             )
         )
+    }
+
+
+    function handleDragEnd(event)  {
+        const { over, active } = event;
+        toggleParent(over.id)
+        console.log(event, active, " ACTIVE ", over, " OVER")  
+
     }
 
     useEffect(() => {
@@ -60,39 +112,9 @@ export function Board(): React.ReactNode {
         <DndContext
             onDragEnd={handleDragEnd}
         >
-            {workoutOptions.map((work, id) => (
-                <Draggable
-                    key={id}
-                    id={id}
-                >
-                    <Image
-                        src={work.Image}
-                        width={300}
-                        height={300}
-                        alt={work.title}
-                    />
-                </Draggable>
-            ))}
-            {parent.map((parent, id) => (
-                <Droppable
-                    key={id}
-                    id={id}
-                >
-                    <div
-                        className='w-14 h-80 bg-red-300 p-4 m-4'
-                    >
-                        {parent.parent === false ? parent.day : ''}
-                    </div>
-                </Droppable>
-            ))}
+           {Board()}
         </DndContext>
     )
-
-    function handleDragEnd(event)  {
-        const { over, active } = event;
-        console.log(event, active, " ACTIVE ", over, " OVER")        
-        toggleParent(over.id)
-    }
-
     
 }
+
