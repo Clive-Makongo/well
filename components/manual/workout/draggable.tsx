@@ -3,7 +3,7 @@ import { useDraggable } from '@dnd-kit/core';
 import { useEffect } from 'react';
 
 export function Draggable(props) {
-  const {attributes, listeners, setNodeRef, transform, active} = useDraggable({
+  const {attributes, listeners, setNodeRef, transform} = useDraggable({
     id: props.id,
   });
   const style = transform ? {
