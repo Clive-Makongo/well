@@ -101,7 +101,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
 
             setImagesLoaded(true);
 
-            // Nutrition
+            
         } catch (error) {
             const errorMessage =
                 error instanceof Error ? error.message : "Failed to generate meal plan";

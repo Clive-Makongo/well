@@ -5,6 +5,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/manual/meal/app-sidebar";
 import Link from "next/link";
 import "./globals.css";
+import { Provider } from "@/context/my-providers";
 
 const lobster_two = Lobster_Two({
   variable: "--font-lobster-two",
@@ -43,13 +44,13 @@ export default function RootLayout({
         className={`${geistMono.variable} antialiased `}
         
       >
-        <MealProvider>
+        <Provider>
           <SidebarProvider>
             <SidebarTrigger/>
             <AppSidebar/>
             {children}
             </SidebarProvider>
-        </MealProvider>
+        </Provider>
       </body>
     </html>
   );

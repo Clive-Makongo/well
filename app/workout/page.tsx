@@ -7,9 +7,6 @@ import { Droppable } from '@/components/manual/workout/droppable';
 import { Draggable } from '@/components/manual/workout/draggable';
 import { Board } from '@/components/manual/workout/board';
 
-const content: Record<string, boolean> = {}
-const containers = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
 export default function Workout():React.ReactNode {
     return (
         <Board/>
