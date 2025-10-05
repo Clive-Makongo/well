@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel, Lobster_Two } from "next/font/google";
-import { MealProvider } from "@/context/meal-context";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/manual/meal/app-sidebar";
-import Link from "next/link";
 import "./globals.css";
 import { Provider } from "@/context/my-providers";
 
@@ -41,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistMono.variable} antialiased `}
+        className={`${lobster_two.variable} antialiased `}
         
       >
         <Provider>

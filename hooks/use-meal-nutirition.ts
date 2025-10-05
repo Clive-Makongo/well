@@ -1,9 +1,7 @@
 "use client"
-
 import { useState, useCallback, useEffect, useMemo } from "react";
-import { useMealGenerate } from "@/hooks/use-meal-generate";
 import { MealID } from "@/hooks/use-meal-generate";
-//import { useMealContext } from "@/components/manual/Context/MealContext";
+
 
 interface MealNutrition {
     breakfast: string[] | number[];
@@ -126,7 +124,8 @@ export const useMealNutrition = () => {
     }, [])
 
     useEffect(() => {
-    }, [processedChartData, chartProps]);
+        console.log(mealNutrition)
+    }, [processedChartData, chartProps, mealNutrition]);
 
     const resetNutrition = useCallback(() => {
         setMealNutrition({

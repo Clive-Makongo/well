@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import MealSegment from "@/components/manual/meal/meal-segment";
 import InputSection from "@/components/manual/meal/input-section";
 import { useMealContext } from "@/context/meal-context";
+import { MobileMeal } from "@/components/manual/meal/mobile-carousel";
 
 
 export default function Meal() {
@@ -32,8 +33,7 @@ export default function Meal() {
       <div className="meal-page w-full">
           <div
               className="w-full h-20"
-          >
-              
+          >  
           </div>
           <div
               className="p-6 w-full"
@@ -48,11 +48,21 @@ export default function Meal() {
                     handleGenerateMeal={handleGenerateMeal}
                     
       />
-          </div>
-      
+      </div>
 
-      <div className="font-sans grid grid-cols-[1fr_1fr_1fr] items-center justify-items-center min-h-screen">
-        {imagesLoaded && MEALS.map((meal, idx) => (
+      {isMobile ?
+        imagesLoaded &&
+        (
+          < MobileMeal
+          images={mealImage}
+          meals={MEALS}
+          chartProps={chartProps}
+          titles={mealType}
+          />
+        )
+      :
+        <div className="font-sans grid grid-cols-[1fr_1fr_1fr] items-center justify-items-center min-h-screen">
+        {imagesLoaded && MEALS.map((meal) => (
           <MealSegment
             key={meal}
             mealImage={mealImage[meal]}
@@ -61,13 +71,8 @@ export default function Meal() {
             isLoading={isLoading}
           />
         ))}
-
-        <button
-          onClick={()=> {console.log(isMobile)}}
-        >
-          CLICK
-        </button>
-      </div>
+      </div>}
+      
     </div>
   );
 }

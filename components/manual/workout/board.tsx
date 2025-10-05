@@ -15,7 +15,7 @@ const COLS: COL[] = [{ id: 'Monday' }, { id: 'Tuesday' }, { id: 'Wednesday' }, {
 export function Board(): ReactNode {
     const {workouts, handleDragEnd} = useWorkoutContext()
     useEffect(() => {
-        console.log(workouts)
+        //console.log(workouts)
     },[workouts])
 
  

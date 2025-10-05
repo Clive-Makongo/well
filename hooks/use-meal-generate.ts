@@ -1,5 +1,5 @@
 "use client"
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 export interface MealType {
     breakfast: string;
     lunch: string;
