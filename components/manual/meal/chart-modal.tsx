@@ -2,10 +2,11 @@
 import React, { ReactNode, useState } from 'react'
 import Modal from 'react-responsive-modal'
 import Chart from './chart'
+import { ChartProps } from '@/types/meal/chart'
 
-export  function ChartModal({chartProps}): ReactNode {
+export  function ChartModal(props: ChartProps): ReactNode {
     const [open, setOpen] = useState<boolean>(false);
-    console.log(chartProps)
+    console.log(props)
     return (
         <>
             <button
@@ -24,9 +25,9 @@ export  function ChartModal({chartProps}): ReactNode {
           center
       >
           <h1>
-              Calories: {chartProps.calories}
+              Calories: {props.calories}
           </h1>
-          <Chart value={chartProps.value} label={chartProps.label} />
+          <Chart value={props.value} label={props.label} />
             </Modal>
         </>
   )

@@ -1,9 +1,10 @@
 "use client"
 import { useState, useCallback, useEffect, createContext, useContext, ReactNode } from "react";
 import { useWindowSize } from "@/hooks/use-window-size";
-import { useMealGenerate, MealImage, MealType, ApiResponse, NutritionalInfo } from "@/hooks/use-meal-generate";
+import { useMealGenerate} from "@/hooks/use-meal-generate";
 import { useMealNutrition } from "@/hooks/use-meal-nutirition";
-import { MealID } from "@/hooks/use-meal-generate";
+import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID } from "@/types/meal/meal"
+import { ChartProps } from "@/types/meal/chart";
 
 const MEALS = ["breakfast", "lunch", "dinner"] as const;
 const MOBILE_BREAKPOINT = 768;
@@ -27,17 +28,13 @@ interface MealContextType {
     mealNutrition: []
     imagesLoaded: boolean,
     handleGenerateMeal: () => void,
-    caloriesSet: number,
+    caloriesSet: number | string,
     dietSet: string,
     setCalories: () => void,
     setDiet: () => void,
     isFormValid: () => boolean,
     MEALS: string[];
-    chartProps: {
-        calories: string | number;
-        value: number[];
-        label: string[];
-    }
+    chartProps: ChartProps
 };
 
 const newMealContext = createContext<MealContextType | null>(null);
@@ -70,7 +67,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     }, [caloriesSet, dietSet]);
 
     // --- Helpers ---
-    const validateApiResponse = (response: any): response is ApiResponse => {
+    const validateApiResponse = (response: any): response is GenApiResponse => {
         return (
             response &&
             Array.isArray(response.meals) &&

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { useDraggable } from "@dnd-kit/core";
-import { Workout } from "@/utils/workout-options";
+import { Workout } from "@/types/workout/workout";
 import Image from "next/image";
 
-export function WorkoutCard({ workout }: Workout): React.ReactElement {
+export function WorkoutCard(workout : Workout): ReactNode {
     const {attributes, listeners, setNodeRef, transform} = useDraggable({id: workout.id});
     
     const style = transform ? {

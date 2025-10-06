@@ -1,14 +1,10 @@
 import React from "react";
-import { COL } from "@/components/manual/workout/board";
-import { Workout } from "@/utils/workout-options";
+import { COL, ColumnProps } from "@/types/workout/workout"; 
+import { Workout } from "@/types/workout/workout"; 
 import { WorkoutCard } from "./workout-card";
 import { useDroppable } from "@dnd-kit/core";
 import Image from "next/image";
 
-interface ColumnProps {
-    column: COL;
-    workouts: Workout[]
-}
 
 export function Column({ column, workouts }: ColumnProps): React.ReactElement {
     const { setNodeRef, isOver } = useDroppable({ id: column.id });
@@ -26,7 +22,7 @@ export function Column({ column, workouts }: ColumnProps): React.ReactElement {
             {column.id}
             {workouts.map((work) => (
                 <WorkoutCard
-                    key={workouts.id}
+                    key={work.id}
                     workout={work}
                 />
             ))}

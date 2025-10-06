@@ -1,34 +1,7 @@
 "use client"
 import { useState, useCallback } from "react";
-export interface MealType {
-    breakfast: string;
-    lunch: string;
-    dinner: string;
-}
+import { GenApiResponse, MealID, MealImage, MealType, NutritionalInfo } from "@/types/meal/meal";
 
-export interface NutritionalInfo {
-    calories: number;
-    carbohydrates: number;
-    fat: number;
-    protein: number;
-}
-
-export interface MealImage {
-    breakfast: string;
-    lunch: string;
-    dinner: string;
-}
-
-export interface MealID {
-    breakfast: number | null;
-    lunch: number | null;
-    dinner: number | null;
-}
-
-export interface ApiResponse {
-    meals: { title: string; sourceUrl: string }[];
-    nutrients: NutritionalInfo;
-}
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 
@@ -57,7 +30,7 @@ export const useMealGenerate = () => {
     const [mealId, setMealId] = useState<MealID>({ breakfast: null, lunch: null, dinner: null })
 
     const generateMeals = useCallback(
-        async (calories: number, diet: string): Promise<ApiResponse | null> => {
+        async (calories: number, diet: string): Promise<GenApiResponse | null> => {
             try {
                 const response = await fetch(`https://api.spoonacular.com/mealplanner/generate?timeFrame=day&targetCalories=${calories}&diet=${diet}&apiKey=${API_KEY}`,);
 

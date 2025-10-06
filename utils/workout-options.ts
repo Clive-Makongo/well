@@ -1,13 +1,5 @@
 import {cardio, pilates, yoga_icon, relax, lower, upper} from '@/public/assets'
-import { StaticImageData } from 'next/image';
-
-export interface Workout {
-    id: number;
-    title: string;
-    status: string;
-    description: string;
-    Image: StaticImageData
-}
+import { Workout } from '@/types/workout/workout';
 
 export const workoutOptions: Workout[] = [
     {

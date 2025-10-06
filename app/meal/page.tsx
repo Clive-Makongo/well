@@ -61,7 +61,7 @@ export default function Meal() {
           />
         )
       :
-        <div className="font-sans grid grid-cols-[1fr_1fr_1fr] items-center justify-items-center min-h-screen">
+        <div className="font-sans grid grid-cols-[1fr_1fr_1fr] items-center justify-items-center ">
         {imagesLoaded && MEALS.map((meal) => (
           <MealSegment
             key={meal}

@@ -1,29 +1,12 @@
 "use client"
 import { useState, useCallback, useEffect, useMemo } from "react";
-import { MealID } from "@/hooks/use-meal-generate";
-
-
-interface MealNutrition {
-    breakfast: string[] | number[];
-    lunch: string[] | number[];
-    dinner: string[] | number[];
-}
-
-interface ChartProps {
-    calories: string | number;
-    value: number[];
-    label: string[];
-}
-
-interface PassedProps {
-    breakfast: ChartProps;
-    lunch: ChartProps;
-    dinner: ChartProps;
-}
+import { MealID, MealNutrition } from "@/types/meal/meal";
+import { NutritionResponse } from "@/types/meal/nutr-api";
+import { PassedProps } from "@/types/meal/chart";
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 
-const get = async (mealID: number): {} => { 
+const get = async (mealID: number): Promise<NutritionResponse> => { 
     // const response = await fetch(`https://api.spoonacular.com/recipes/${mealID}/nutritionWidget.json?apiKey=${API_KEY}`);
     // const data = await response.json()
     // console.log("DATA: ", data)
