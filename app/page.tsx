@@ -9,11 +9,12 @@ export default function Home(): ReactNode {
         src={yoga}
         alt="Yoga background"
         fill
-        className="object-cover"
+        className="object-cover w-full"
         priority
       />
-      <div className="relative z-10">
-        {/* Your content here */}
+      <div className="relative bg-white top-50 left-175 w-90 z-10 p-4">
+       <h1 className="font-bold text-7xl">Fuel Fit</h1>
+        <p className="text-xl">The best you is only a click away</p>
       </div>
     </div>
   )

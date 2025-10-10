@@ -29,11 +29,6 @@ const items = [
     title: "Work Out",
     url: "/workout",
     icon: Dumbbell,
-  },
-  {
-    title: "Self Help",
-    url: "/self-help",
-    icon: Heart,
   }
 ]
 
