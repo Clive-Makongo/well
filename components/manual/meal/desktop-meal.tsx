@@ -48,17 +48,7 @@ export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSeg
 
 
   return (
-      <div>
-          <div>
-              {chartProps &&
-                  <button
-                      onClick={() => console.log(chartProps)}
-                  >
-                      CHARTPROPS
-                  </button>
-              }
-          </div>
-          
+ 
           <Card>
               <CardHeader>
                   <CardTitle>
@@ -69,12 +59,13 @@ export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSeg
                   </CardDescription>
               </CardHeader>
               <CardContent>
-                  <Image
-                      src={mealImage}
-                      alt="Image did not load :("
-                      width={180}
-                      height={38}
-                      priority
+              <Image
+                  width={500}
+                  height={500}
+                    src={mealImage}
+                    alt="Image did not load :("
+                  priority
+                  
                   />
               </CardContent>
               <CardFooter>
@@ -87,8 +78,5 @@ export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSeg
                   )}
               </CardFooter>
           </Card>
-
-          
-    </div>
   )
 }

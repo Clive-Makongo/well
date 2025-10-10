@@ -14,18 +14,29 @@ export function Column({ column, workouts }: ColumnProps): React.ReactElement {
 
     const style = {
     color: isOver ? 'green' : undefined,
-  };
+    };
+    
     return (
         <div
             key={column.id}
             style={style}
             ref={setNodeRef}
-            className=" h-120 w-20 bg-red-500 m-4"
+            className=" h-120 w-30 rounded-lg bg-cyan-100 m-4"
         >
-            {column.id}
+            <div
+                className="flex flex-row justify-between"
+            >
+                <span className="border-black-500 rounded-xl p-2">{workouts.length}</span>
+                <span>{column.id}</span>
+                
+            
+           
+            
+            </div>
+            
             {workouts.map((work) => (
                 <WorkoutCard
-                    key={workouts.id}
+                    key={work.id}
                     workout={work}
                 />
             ))}
