@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel, Lobster_Two } from "next/font/google";
-import { MealProvider } from "@/context/meal-context";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/manual/meal/app-sidebar";
-import Link from "next/link";
+import { AppSidebar } from "@/components/manual/general/app-sidebar";
 import "./globals.css";
+import { Provider } from "@/context/my-providers";
 
 const lobster_two = Lobster_Two({
   variable: "--font-lobster-two",
@@ -40,16 +39,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistMono.variable} antialiased `}
+        className={`${lobster_two.variable} antialiased `}
         
       >
-        <MealProvider>
+        <Provider>
           <SidebarProvider>
-            <SidebarTrigger />
+            <SidebarTrigger/>
             <AppSidebar/>
             {children}
             </SidebarProvider>
-        </MealProvider>
+        </Provider>
       </body>
     </html>
   );

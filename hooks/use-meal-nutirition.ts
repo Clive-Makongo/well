@@ -1,31 +1,12 @@
 "use client"
-
 import { useState, useCallback, useEffect, useMemo } from "react";
-import { useMealGenerate } from "@/hooks/use-meal-generate";
-import { MealID } from "@/hooks/use-meal-generate";
-//import { useMealContext } from "@/components/manual/Context/MealContext";
-
-interface MealNutrition {
-    breakfast: string[] | number[];
-    lunch: string[] | number[];
-    dinner: string[] | number[];
-}
-
-interface ChartProps {
-    calories: string | number;
-    value: number[];
-    label: string[];
-}
-
-interface PassedProps {
-    breakfast: ChartProps;
-    lunch: ChartProps;
-    dinner: ChartProps;
-}
+import type { MealID, MealNutrition } from "@/types/meal/meal";
+import type { NutritionResponse } from "@/types/meal/nutr-api";
+import type { PassedProps } from "@/types/meal/chart";
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 
-const get = async (mealID: number): {} => { 
+const get = async (mealID: number): Promise<NutritionResponse> => { 
     // const response = await fetch(`https://api.spoonacular.com/recipes/${mealID}/nutritionWidget.json?apiKey=${API_KEY}`);
     // const data = await response.json()
     // console.log("DATA: ", data)
@@ -69,7 +50,6 @@ export const useMealNutrition = () => {
 
 
     const processedChartData = useMemo(() => {
-        console.log("PROCESS : ", mealNutrition)
         if (!mealNutrition?.breakfast?.nutrients) {
             return { value: [], label: [], calories: 0 };
         }
@@ -110,7 +90,6 @@ export const useMealNutrition = () => {
 
 
     const getMealNutrients = useCallback(async (mealId: MealID) => {
-        console.log("MEAL IDDDDDD: ", mealId)
         if (mealId.breakfast != null && mealId.lunch != null && mealId.dinner != null) {
             const [breakfast, lunch, dinner] = await Promise.all([
                 get(mealId.breakfast),
@@ -118,7 +97,6 @@ export const useMealNutrition = () => {
                 get(mealId.dinner)
             ])
 
-            console.log(breakfast, lunch, dinner)
 
             setMealNutrition({
                 breakfast: breakfast,
@@ -129,12 +107,8 @@ export const useMealNutrition = () => {
     }, [])
 
     useEffect(() => {
-        console.log(chartProps)
-    }, [processedChartData, chartProps]);
-
-    useEffect(() => {
-        console.log("MEALLLLLLLLL: ", mealNutrition, chartProps);
-    }, [mealNutrition]);
+        //console.log(mealNutrition)
+    }, [processedChartData, chartProps, mealNutrition]);
 
     const resetNutrition = useCallback(() => {
         setMealNutrition({

@@ -1,3 +1,4 @@
+"use client"
 import { Calendar, Home, UtensilsCrossed, Dumbbell, Heart } from "lucide-react"
 import Link from "next/link"
 import {
@@ -9,6 +10,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar
 } from "@/components/ui/sidebar"
 
 // Menu items.
@@ -27,27 +29,28 @@ const items = [
     title: "Work Out",
     url: "/workout",
     icon: Dumbbell,
-  },
-  {
-    title: "Self Help",
-    url: "/self-help",
-    icon: Heart,
   }
 ]
 
 export function AppSidebar() {
+  const { isMobile, setOpenMobile } = useSidebar()
+
+  const handleClick = () => {
+    
+    if (isMobile) {setOpenMobile(false)}
+  }
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Fuel Fit</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton onClick={handleClick}  asChild>
                           
-                        <Link href={item.url}>
+                        <Link onClick={handleClick} href={item.url}>
                       <item.icon />
                         <span>{item.title}</span>
                         </Link>

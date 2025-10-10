@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import {
@@ -43,10 +42,9 @@ const Chart = ({ label, value }: ChartProps): React.ReactElement => {
 
       }
     ]
-    };
-    
-    console.log("CHART: ", label, value)
-
+  };
+  
+  
   return <Pie data={data} />
 }
 
