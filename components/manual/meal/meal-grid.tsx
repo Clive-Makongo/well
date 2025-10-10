@@ -1,14 +1,14 @@
 import React from "react";
 import { MobileMeal } from "./mobile-meal";
 import { DesktopMeal } from "./desktop-meal";
-import { MealImage } from "@/types/meal/meal";
+import { MealImage, MealType } from "@/types/meal/meal";
 import { ChartProps } from "@/types/meal/chart";
 
 export interface MealGridProps {
     isMobile: boolean;
     meals: string[];
-    mealImage: MealImage[];
-    mealType: string[]
+    mealImage: MealImage;
+    mealType: MealType
     chartProps: ChartProps;
     isLoading: boolean;
 }

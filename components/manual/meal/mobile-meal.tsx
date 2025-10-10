@@ -3,14 +3,14 @@ import React, { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChartModal } from './chart-modal'
 import Image from 'next/image'
-import { MealImage } from '@/types/meal/meal'
+import { MealImage, MealType } from '@/types/meal/meal'
 import { ChartProps } from '@/types/meal/chart'
 
 interface CarouselProps {
-    images: MealImage[]
+    images: MealImage
     meals: string[]
     chartProps: ChartProps
-    titles: string[]
+    titles: MealType
 }
 
 export function MobileMeal({images, meals, chartProps, titles}: CarouselProps) {

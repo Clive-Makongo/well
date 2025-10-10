@@ -67,8 +67,7 @@ export const useMealGenerate = () => {
                 console.error("Error generating meals:", error);
                 throw error;
             }
-        },
-        []);
+        },[]);
     
     return {
         mealType,
