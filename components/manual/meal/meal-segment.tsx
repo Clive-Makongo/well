@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { MobileMeal } from '@/components/manual/meal/mobile-carousel'
+import { MobileMeal } from '@/components/manual/meal/mobile-meal'
 import { DesktopMeal } from './desktop-meal'
 import { MealSegmentProps } from './desktop-meal'
 import { useMealContext } from '@/context/meal-context'

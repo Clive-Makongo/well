@@ -28,7 +28,7 @@ interface MealContextType {
     mealNutrition: []
     imagesLoaded: boolean,
     handleGenerateMeal: () => void,
-    caloriesSet: number | string,
+    caloriesSet: string,
     dietSet: string,
     setCalories: () => void,
     setDiet: () => void,
@@ -41,7 +41,7 @@ const newMealContext = createContext<MealContextType | null>(null);
 
 export const MealProvider = ({ children }: { children: ReactNode }) => {
     // Input state
-    const [caloriesSet, setCalories] = useState<number | string>('');
+    const [caloriesSet, setCalories] = useState<string>('');
     const [dietSet, setDiet] = useState<string>("");
 
     // Status state

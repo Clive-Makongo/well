@@ -1,14 +1,14 @@
 import React from "react";
-import { MobileMeal } from "./mobile-carousel";
+import { MobileMeal } from "./mobile-meal";
 import { DesktopMeal } from "./desktop-meal";
 import { MealImage } from "@/types/meal/meal";
 import { ChartProps } from "@/types/meal/chart";
 
-interface MealGridProps {
+export interface MealGridProps {
     isMobile: boolean;
     meals: string[];
-    mealImage: MealImage;
-    mealType: Record<string, string>;
+    mealImage: MealImage[];
+    mealType: string[]
     chartProps: ChartProps;
     isLoading: boolean;
 }
