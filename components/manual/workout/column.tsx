@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { COL } from "@/types/workout/workout";
 import { Workout } from "@/types/workout/workout";
 import { WorkoutCard } from "./workout-card";
@@ -9,11 +9,11 @@ interface ColumnProps {
     workouts: Workout[]
 }
 
-export function Column({ column, workouts }: ColumnProps): React.ReactElement {
+export function Column({ column, workouts }: ColumnProps): ReactNode {
     const { setNodeRef, isOver } = useDroppable({ id: column.id });
 
     const style = {
-    color: isOver ? 'green' : undefined,
+    backgroundColor: isOver ? 'cyan' : undefined,
     };
     
     return (
@@ -26,12 +26,8 @@ export function Column({ column, workouts }: ColumnProps): React.ReactElement {
             <div
                 className="flex flex-row justify-between"
             >
-                <span className="border-black-500 rounded-xl p-2">{workouts.length}</span>
-                <span>{column.id}</span>
-                
-            
-           
-            
+                <span className="p-4 font-bold">{column.id}</span>
+                <span className="border-4 rounded-xl p-2">{workouts.length}</span>
             </div>
             
             {workouts.map((work) => (
