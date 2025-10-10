@@ -4,9 +4,8 @@ import Modal from 'react-responsive-modal'
 import Chart from './chart'
 import { ChartProps } from '@/types/meal/chart'
 
-export  function ChartModal(props: ChartProps): ReactNode {
+export  function ChartModal({ calories, value, label }: ChartProps): ReactNode {
     const [open, setOpen] = useState<boolean>(false);
-    console.log(props)
     return (
         <>
             <button
@@ -25,9 +24,9 @@ export  function ChartModal(props: ChartProps): ReactNode {
           center
       >
           <h1>
-              Calories: {props.calories}
+              Calories: {calories}
           </h1>
-          <Chart value={props.value} label={props.label} />
+          <Chart value={value} label={label} />
             </Modal>
         </>
   )

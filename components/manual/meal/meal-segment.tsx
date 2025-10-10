@@ -10,8 +10,8 @@ export default function MealSegment({ mealImage, mealType, chartProps, isLoading
     <div>
           {isMobile ?
               <MobileMeal
-                  mealImage={mealImage}
-                  mealType={mealType}
+                  images={mealImage}
+                  meals
               /> :
               <DesktopMeal
                   mealImage={mealImage}

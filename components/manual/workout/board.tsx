@@ -1,34 +1,49 @@
 "use client"
-import React, { useState, useEffect, act, ReactNode } from 'react';
+import React, { useEffect, ReactNode } from 'react';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { Column } from './column';
-import { workoutOptions } from '@/utils/workout-options';
-import { Workout } from '@/types/workout/workout';
 import { useWorkoutContext } from '@/context/workout-context';
 import { COL } from '@/types/workout/workout';
+import { Hero } from '../general/hero';
 
-const COLS: COL[] = [{ id: 'Monday' }, { id: 'Tuesday' }, { id: 'Wednesday' }, { id: 'Thursday' }, { id: 'Friday' }, { id: 'Exercises' }];
-
+const COLS: COL[] = [
+    { id: 'Monday' }, 
+    { id: 'Tuesday' }, 
+    { id: 'Wednesday' }, 
+    { id: 'Thursday' }, 
+    { id: 'Friday' }, 
+    { id: 'Exercises' }
+];
 
 export function Board(): ReactNode {
     const {workouts, handleDragEnd} = useWorkoutContext()
+    
     useEffect(() => {
         //console.log(workouts)
-    },[workouts])
+    }, [workouts])
 
- 
     return (
-        <DndContext
-            onDragEnd={handleDragEnd}
-        >
-            {COLS.map((col, id) => (
-                <Column
-                    key={id}
-                    column = { col }
-                    workouts = {workouts.filter((work) => work.status === col.id)}
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 w-full p-6">
+            <div className="max-w-[1600px] mx-auto space-y-6">
+                {/* Header */}
+                <Hero
+                    title='Weekly Wokout Plan'
+                    tag='Drag and drop exercises to schedule your week'
                 />
-                
-            ))}
-        </DndContext>
+
+                {/* Board */}
+                <DndContext onDragEnd={handleDragEnd}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 xl:grid-cols-6 gap-4 ">
+                        {COLS.map((col) => (
+                            <Column
+                                key={col.id}
+                                column={col}
+                                workouts={workouts.filter((work) => work.status === col.id)}
+                            />
+                        ))}
+                    </div>
+                </DndContext>
+            </div>
+        </div>
     )
 }

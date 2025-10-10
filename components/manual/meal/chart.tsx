@@ -44,6 +44,7 @@ const Chart = ({ label, value }: ChartProps): React.ReactElement => {
     ]
   };
   
+  
   return <Pie data={data} />
 }
 

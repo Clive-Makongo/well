@@ -1,7 +1,6 @@
 "use client"
 import { useState, useCallback } from "react";
-import { GenApiResponse, MealID, MealImage, MealType, NutritionalInfo } from "@/types/meal/meal";
-
+import type { GenApiResponse, MealID, MealImage, MealType, NutritionalInfo } from "@/types/meal/meal";
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 

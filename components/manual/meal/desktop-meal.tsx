@@ -80,7 +80,9 @@ export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSeg
               <CardFooter>
                   {chartProps && (
                       <ChartModal
-                          chartProps={chartProps}
+                          calories={chartProps.calories}
+                          value={chartProps.value}
+                          label={chartProps.label}
                       />
                   )}
               </CardFooter>

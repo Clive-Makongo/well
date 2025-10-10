@@ -1,14 +1,15 @@
 "use client"
-import Image from "next/image";
-import { Card } from "@/components/ui/card";
-import MealSegment from "@/components/manual/meal/meal-segment";
-import InputSection from "@/components/manual/meal/input-section";
 import { useMealContext } from "@/context/meal-context";
-import { MobileMeal } from "@/components/manual/meal/mobile-carousel";
-
+import InputSection from "@/components/manual/meal/input-section";
+import { Hero } from "@/components/manual/general/hero";
+import { ErrorState } from "@/components/manual/meal/error-state";
+import { MealPlanHeader } from "@/components/manual/meal/meal-plan-header";
+import { MealGrid } from "@/components/manual/meal/meal-grid";
+import { EmptyState } from "@/components/manual/meal/empty-state";
+import { LoadingState } from "@/components/manual/meal/loading-state";
 
 export default function Meal() {
-  const {
+    const {
         caloriesSet,
         dietSet,
         setCalories,
@@ -17,62 +18,53 @@ export default function Meal() {
         error,
         isMobile,
         imagesLoaded,
-        mealId,
         mealType,
         mealImage,
-        mealNutrition,
-        nutrition,
         handleGenerateMeal,
         isFormValid,
         MEALS,
         chartProps
-  } = useMealContext();
+    } = useMealContext();
 
-  
-  return (
-      <div className="meal-page w-full">
-          <div
-              className="w-full h-20"
-          >  
-          </div>
-          <div
-              className="p-6 w-full"
-          >
-              <InputSection
-                    caloriesSet={caloriesSet}
-                    dietSet={dietSet}
-                    setCalories={setCalories}
-                    setDiet={setDiet}
-                    isFormValid={isFormValid}
-                    isLoading={isLoading}
-                    handleGenerateMeal={handleGenerateMeal}
-                    
-      />
-      </div>
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 w-full">
+            <Hero
+                title="Meal Planner"
+                tag="Generate personalized meal plans tailored to your dietary needs and calorie goals"
+            />
 
-      {isMobile ?
-        imagesLoaded &&
-        (
-          < MobileMeal
-          images={mealImage}
-          meals={MEALS}
-          chartProps={chartProps}
-          titles={mealType}
-          />
-        )
-      :
-        <div className="font-sans grid grid-cols-[1fr_1fr_1fr] items-center justify-items-center ">
-        {imagesLoaded && MEALS.map((meal) => (
-          <MealSegment
-            key={meal}
-            mealImage={mealImage[meal]}
-            mealType={mealType[meal]}
-            chartProps={chartProps[meal]}
-            isLoading={isLoading}
-          />
-        ))}
-      </div>}
-      
-    </div>
-  );
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+                    <InputSection
+                        caloriesSet={caloriesSet}
+                        dietSet={dietSet}
+                        setCalories={setCalories}
+                        setDiet={setDiet}
+                        isFormValid={isFormValid}
+                        isLoading={isLoading}
+                        handleGenerateMeal={handleGenerateMeal}
+                    />
+                </div>
+            </div>
+
+            {error && <ErrorState error={error} />}
+
+            {imagesLoaded && (
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <MealPlanHeader calories={caloriesSet} diet={dietSet} />
+                    <MealGrid
+                        isMobile={isMobile}
+                        meals={MEALS}
+                        mealImage={mealImage}
+                        mealType={mealType}
+                        chartProps={chartProps}
+                        isLoading={isLoading}
+                    />
+                </div>
+            )}
+
+            {!imagesLoaded && !isLoading && <EmptyState />}
+            {isLoading && <LoadingState />}
+        </div>
+    );
 }

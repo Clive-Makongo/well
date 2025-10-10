@@ -1,5 +1,7 @@
 import React from "react";
-import { Button } from "../../ui/button";
+import { CalorieInput } from "./calorie-input";
+import { DietSelect } from "./diet-select";
+import { GenerateButton } from "./generate-button";
 
 interface InputSectionProps {
     caloriesSet: string;
@@ -21,51 +23,26 @@ const InputSection: React.FC<InputSectionProps> = ({
     handleGenerateMeal,
 }) => {
     return (
-        <section className="inputs flex flex-col justify-evenly w-full mb-6 gap-4 mx-auto">
-            {/* Calories Input */}
-            <div className="flex flex-row justify-between">
-                <label htmlFor="calories" className="text-sm font-medium mb-1">
-                    Calories (1-3000)
-                </label>
-                <input
-                    id="calories"
-                    className="set-calories border-2 border-black rounded-lg px-3 py-2 w-1/2"
-                    type="number"
-                    min="1"
-                    max="5000"
-                    placeholder="2000"
-                    onChange={(e) => setCalories(e.target.value)}
+        <section className="w-full space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <CalorieInput 
                     value={caloriesSet}
+                    onChange={setCalories}
                     disabled={isLoading}
                 />
-            </div>
-
-            {/* Diet Input */}
-            <div className="flex flex-row justify-between">
-                <label htmlFor="diet" className="text-sm font-medium mb-1 w-16">
-                    Diet Type
-                </label>
-                <input
-                    id="diet"
-                    className="set-diet border-2 border-black rounded-lg px-3 py-2 w-1/2"
-                    type="text"
-                    placeholder="Mediterranean"
-                    onChange={(e) => setDiet(e.target.value)}
+                <DietSelect 
                     value={dietSet}
+                    onChange={setDiet}
                     disabled={isLoading}
                 />
             </div>
 
-            {/* Button */}
-            <div className="flex flex-row justify-end">
-                
-                <Button
+            <div className="flex justify-end pt-2">
+                <GenerateButton
                     onClick={handleGenerateMeal}
                     disabled={!isFormValid() || isLoading}
-                >
-                    
-                    {isLoading ? "Generating..." : "Generate Meals"}
-                </Button>
+                    isLoading={isLoading}
+                />
             </div>
         </section>
     );

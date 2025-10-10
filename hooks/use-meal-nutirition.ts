@@ -1,8 +1,8 @@
 "use client"
 import { useState, useCallback, useEffect, useMemo } from "react";
-import { MealID, MealNutrition } from "@/types/meal/meal";
-import { NutritionResponse } from "@/types/meal/nutr-api";
-import { PassedProps } from "@/types/meal/chart";
+import type { MealID, MealNutrition } from "@/types/meal/meal";
+import type { NutritionResponse } from "@/types/meal/nutr-api";
+import type { PassedProps } from "@/types/meal/chart";
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 
@@ -107,7 +107,7 @@ export const useMealNutrition = () => {
     }, [])
 
     useEffect(() => {
-        console.log(mealNutrition)
+        //console.log(mealNutrition)
     }, [processedChartData, chartProps, mealNutrition]);
 
     const resetNutrition = useCallback(() => {
