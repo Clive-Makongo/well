@@ -57,4 +57,5 @@ export interface NutritionResponse {
     caloricBreakdown: CaloricBreakdown
     weightPerServing: WeightPerServing
     expires: number
+    error: unknown
 }
