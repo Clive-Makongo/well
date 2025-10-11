@@ -3,7 +3,7 @@ import { useState, useCallback, useEffect, createContext, useContext, ReactNode 
 import { useWindowSize } from "@/hooks/use-window-size";
 import { useMealGenerate} from "@/hooks/use-meal-generate";
 import { useMealNutrition } from "@/hooks/use-meal-nutirition";
-import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID } from "@/types/meal/meal"
+import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID, MealNutrition } from "@/types/meal/meal"
 import { ChartProps, PassedProps } from "@/types/meal/chart";
 
 export const MEALS = ["breakfast", "lunch", "dinner"] as const;
@@ -18,25 +18,25 @@ class MealGenerationError extends Error {
 };
 
 interface MealContextType {
-    isMobile: boolean,
-    isLoading: boolean,
-    error: string | null,
-    nutrition: NutritionalInfo,
-    mealId: MealID,
-    mealType: MealType,
-    mealImage: MealImage,
-    setMealImage: () => void,
-    mealNutrition: []
-    imagesLoaded: boolean,
-    handleGenerateMeal: () => void,
-    caloriesSet: string,
-    dietSet: string,
-    setCalories: () => void,
-    setDiet: () => void,
-    isFormValid: () => boolean,
-    MEALS: string[];
-    chartProps: PassedProps
-};
+    isMobile: boolean;
+    isLoading: boolean;
+    error: string | null;
+    nutrition: NutritionalInfo;
+    mealId: MealID;
+    mealType: MealType;
+    mealImage: MealImage;
+    setMealImage: React.Dispatch<React.SetStateAction<MealImage>>;
+    mealNutrition: MealNutrition; 
+    imagesLoaded: boolean;
+    handleGenerateMeal: () => void;
+    caloriesSet: string;
+    dietSet: string;
+    setCalories: React.Dispatch<React.SetStateAction<string>>; 
+    setDiet: React.Dispatch<React.SetStateAction<string>>; 
+    isFormValid: () => boolean;
+    MEALS: readonly MealKey[]; 
+    chartProps: PassedProps;
+}
 
 const newMealContext = createContext<MealContextType | null>(null);
 
