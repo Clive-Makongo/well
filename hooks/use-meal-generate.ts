@@ -2,7 +2,7 @@
 import { useState, useCallback } from "react";
 import type { GenApiResponse, MealID, MealImage, MealType, NutritionalInfo } from "@/types/meal/meal";
 
-const API_KEY = process.env.NEXT_PUBLIC_KEY0;
+const API_KEY = process.env.NEXT_PUBLIC_KEY1;
 
 export const useMealGenerate = () => {
     // Meal/nutrition state
@@ -34,6 +34,7 @@ export const useMealGenerate = () => {
                 const response = await fetch(`https://api.spoonacular.com/mealplanner/generate?timeFrame=day&targetCalories=${calories}&diet=${diet}&apiKey=${API_KEY}`,);
 
                 const data = await response.json();
+                console.log(data)
                 setMealType({
                     breakfast: data.meals[0].title,
                     lunch: data.meals[1].title,
@@ -67,7 +68,7 @@ export const useMealGenerate = () => {
                 console.error("Error generating meals:", error);
                 throw error;
             }
-        },[]);
+        },[mealType]);
     
     return {
         mealType,
