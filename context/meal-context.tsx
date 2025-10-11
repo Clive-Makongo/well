@@ -69,7 +69,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
 
     // --- Helpers ---
     const validateApiResponse = (response: GenApiResponse | null): response is GenApiResponse => {
-        return (
+        return !! (
             response &&
             Array.isArray(response.meals) &&
             response.meals.length >= 3 &&
