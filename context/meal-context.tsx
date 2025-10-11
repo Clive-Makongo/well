@@ -59,7 +59,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
 
     // Device size
     const { width } = useWindowSize();
-    const isMobile: boolean = width < MOBILE_BREAKPOINT;
+    const isMobile: boolean  = width < MOBILE_BREAKPOINT;
 
     // --- Validation ---
     const isFormValid = useCallback(() => {
