@@ -31,7 +31,7 @@ export interface GenApiResponse {
 }
 
 export interface MealNutrition {
-    breakfast: NutritionResponse | [];
-    lunch: NutritionResponse | [];
-    dinner: NutritionResponse | [];
+    breakfast: NutritionResponse | null;
+    lunch: NutritionResponse | null;
+    dinner: NutritionResponse | null;
 }

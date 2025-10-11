@@ -61,7 +61,7 @@ export interface NutritionResponse {
 }
 
 export interface PNutirtionResresponse {
-    breakfast: NutritionResponse | null
-    lunch: NutritionResponse | null
-    dinner: NutritionResponse | null
+    breakfast: NutritionResponse | null 
+    lunch: NutritionResponse | null 
+    dinner: NutritionResponse | null 
 }
