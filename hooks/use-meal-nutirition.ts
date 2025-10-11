@@ -1,45 +1,48 @@
 "use client"
 import { useState, useCallback, useEffect, useMemo } from "react";
-import type { MealID, MealNutrition } from "@/types/meal/meal";
-import type { NutritionResponse, PNutirtionResresponse } from "@/types/meal/nutr-api";
+import type { MealID } from "@/types/meal/meal";
+import type { NutritionResponse, PNutritionResponse } from "@/types/meal/nutr-api";
 import type { PassedProps } from "@/types/meal/chart";
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 
 const get = async (mealID: number): Promise<NutritionResponse | null> => { 
-    // const response = await fetch(`https://api.spoonacular.com/recipes/${mealID}/nutritionWidget.json?apiKey=${API_KEY}`);
-    // const data = await response.json()
-    // console.log("DATA: ", data)
     try {
         const response = await fetch(`https://api.spoonacular.com/recipes/${mealID}/nutritionWidget.json?apiKey=${API_KEY}`);
 
-         if (!response.ok) {
+        if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-         const data = await response.json();
+        const data = await response.json();
         return data;
 
     } catch (error) {
         console.error('Error fetching meals:', error);
-        return null
+        return null;
     }
-
 }
 
 export const useMealNutrition = () => {
-    const [mealNutrition, setMealNutrition] = useState<PNutirtionResresponse>({
+    const [mealNutrition, setMealNutrition] = useState<PNutritionResponse>({
         breakfast: null,
         lunch: null,
         dinner: null
     });
-    const [chartProps, setChartProps] = useState<PassedProps>({ breakfast: { calories: 0, value: [], label: [] }, lunch: { calories: 0, value: [], label: [] }, dinner: { calories: 0, value: [], label: [] } });
+    const [chartProps, setChartProps] = useState<PassedProps>({ 
+        breakfast: { calories: 0, value: [], label: [] }, 
+        lunch: { calories: 0, value: [], label: [] }, 
+        dinner: { calories: 0, value: [], label: [] } 
+    });
 
     const extractNutrients = (mealData: NutritionResponse | null) => {
+        if (!mealData) {
+            return { values: [], labels: [] };
+        }
+
         const nutrients = Object.entries(mealData.nutrients);
         const filtered = nutrients.filter(([key, nutrient]: [string, any]) =>
             nutrient.unit === 'g' && nutrient.name !== "Net Carbohydrates"
-
         );
 
         return {
@@ -48,9 +51,9 @@ export const useMealNutrition = () => {
         };
     };
 
-
     const processedChartData = useMemo(() => {
-        if (!mealNutrition?.breakfast?.nutrients) {
+        // Check if all meals are null/undefined
+        if (!mealNutrition.breakfast && !mealNutrition.lunch && !mealNutrition.dinner) {
             return { value: [], label: [], calories: 0 };
         }
 
@@ -59,35 +62,25 @@ export const useMealNutrition = () => {
         const lunch = extractNutrients(mealNutrition.lunch);
         const dinner = extractNutrients(mealNutrition.dinner);
 
-        const breakfastValues = breakfast.values;
-        const breakfastLabels = breakfast.labels;
-        const lunchValues = lunch.values;
-        const lunchLabels = lunch.labels;
-        const dinnerValues = dinner.values;
-        const dinnerLabels = dinner.labels;
-
         setChartProps({
             breakfast: {
-                calories: mealNutrition.breakfast.nutrients[0]?.amount || 0,
-                value: breakfastValues,
-                label: breakfastLabels
+                calories: mealNutrition.breakfast?.nutrients[0]?.amount || 0,
+                value: breakfast.values,
+                label: breakfast.labels
             },
             lunch: {
-                calories: mealNutrition.lunch.nutrients[0]?.amount || 0,
-                value: lunchValues,
-                label: lunchLabels
+                calories: mealNutrition.lunch?.nutrients[0]?.amount || 0,
+                value: lunch.values,
+                label: lunch.labels
             },
             dinner: {
-                calories: mealNutrition.dinner.nutrients[0]?.amount || 0,
-                value: dinnerValues,
-                label: dinnerLabels
+                calories: mealNutrition.dinner?.nutrients[0]?.amount || 0,
+                value: dinner.values,
+                label: dinner.labels
             }
-        })
-
-        // return [[breakfastLabels, breakfastValues], [lunchLabels, lunchLabels, lunchValues], [dinnerLabels, dinnerValues]]
+        });
 
     }, [mealNutrition]);
-
 
     const getMealNutrients = useCallback(async (mealId: MealID) => {
         if (mealId.breakfast != null && mealId.lunch != null && mealId.dinner != null) {
@@ -95,19 +88,24 @@ export const useMealNutrition = () => {
                 get(mealId.breakfast),
                 get(mealId.lunch),
                 get(mealId.dinner)
-            ])
+            ]);
 
+            // Only update if all requests succeeded
+            if (!breakfast || !lunch || !dinner) {
+                console.error('Failed to fetch some meal nutrition data');
+                return;
+            }
 
             setMealNutrition({
                 breakfast: breakfast,
                 lunch: lunch,
                 dinner: dinner
-            })
+            });
         }
-    }, [])
+    }, []);
 
     useEffect(() => {
-        //console.log(mealNutrition)
+        // console.log(mealNutrition)
     }, [processedChartData, chartProps, mealNutrition]);
 
     const resetNutrition = useCallback(() => {

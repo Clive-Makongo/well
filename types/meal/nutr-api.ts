@@ -57,11 +57,10 @@ export interface NutritionResponse {
     caloricBreakdown: CaloricBreakdown
     weightPerServing: WeightPerServing
     expires: number
-    error: unknown
 }
 
-export interface PNutirtionResresponse {
-    breakfast: NutritionResponse | null 
-    lunch: NutritionResponse | null 
-    dinner: NutritionResponse | null 
+export interface PNutritionResponse {
+    breakfast: NutritionResponse | null  
+    lunch: NutritionResponse | null  
+    dinner: NutritionResponse | null  
 }
