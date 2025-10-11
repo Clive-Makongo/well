@@ -4,9 +4,9 @@ import { useWindowSize } from "@/hooks/use-window-size";
 import { useMealGenerate} from "@/hooks/use-meal-generate";
 import { useMealNutrition } from "@/hooks/use-meal-nutirition";
 import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID } from "@/types/meal/meal"
-import { ChartProps } from "@/types/meal/chart";
+import { ChartProps, PassedProps } from "@/types/meal/chart";
 
-const MEALS = ["breakfast", "lunch", "dinner"] as const;
+const MEALS = ["breakfast", "lunch", "dinner"] as ;
 export type MealKey = typeof MEALS[number];
 const MOBILE_BREAKPOINT = 768;
 
@@ -35,7 +35,7 @@ interface MealContextType {
     setDiet: () => void,
     isFormValid: () => boolean,
     MEALS: string[];
-    chartProps: ChartProps
+    chartProps: PassedProps
 };
 
 const newMealContext = createContext<MealContextType | null>(null);
