@@ -7,6 +7,7 @@ import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID } from "@/
 import { ChartProps } from "@/types/meal/chart";
 
 const MEALS = ["breakfast", "lunch", "dinner"] as const;
+export type MealKey = typeof MEALS[number];
 const MOBILE_BREAKPOINT = 768;
 
 class MealGenerationError extends Error {

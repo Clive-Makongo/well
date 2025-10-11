@@ -4,12 +4,13 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ChartModal } from './chart-modal'
 import Image from 'next/image'
 import { MealImage, MealType } from '@/types/meal/meal'
-import { ChartProps } from '@/types/meal/chart'
+import { ChartProps, PassedProps } from '@/types/meal/chart'
+import { MealKey } from '@/context/meal-context'
 
 interface CarouselProps {
     images: MealImage
-    meals: string[]
-    chartProps: ChartProps
+    meals: MealKey[]
+    chartProps: PassedProps
     titles: MealType
 }
 
@@ -65,7 +66,7 @@ export function MobileMeal({images, meals, chartProps, titles}: CarouselProps) {
             <div className="relative group">
                 <div className="embla overflow-hidden rounded-xl" ref={emblaRef}>
                     <div className="embla__container flex">
-                        {meals.map((meal: string, id: number) => (
+                        {meals.map((meal: MealKey, id: number) => (
                             <div
                                 key={id}
                                 className="embla__slide flex-[0_0_100%] min-w-0 px-3"

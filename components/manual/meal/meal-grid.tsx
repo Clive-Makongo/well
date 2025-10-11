@@ -2,15 +2,17 @@ import React from "react";
 import { MobileMeal } from "./mobile-meal";
 import { DesktopMeal } from "./desktop-meal";
 import { MealImage, MealType } from "@/types/meal/meal";
-import { ChartProps } from "@/types/meal/chart";
+import { ChartProps, PassedProps } from "@/types/meal/chart";
+import { MealKey } from "@/context/meal-context";
 
 export interface MealGridProps {
     isMobile: boolean;
-    meals: string[];
+    meals: MealKey[];
     mealImage: MealImage;
     mealType: MealType
-    chartProps: ChartProps;
+    chartProps: PassedProps;
     isLoading: boolean;
+    mobileChartProps?: ChartProps
 }
 
 export function MealGrid({ 
@@ -21,6 +23,7 @@ export function MealGrid({
     chartProps, 
     isLoading 
 }: MealGridProps) {
+    console.log(chartProps)
     if (isMobile) {
         return (
             <MobileMeal
