@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, createContext, useContext, ReactNode } from "react"
-import { workoutOptions, Workout } from "@/utils/workout-options";
+import { workoutOptions } from "@/utils/workout-options";
+import { Workout } from "@/types/workout/workout";
 import { DragEndEvent } from "@dnd-kit/core";
 
 interface WorkoutContextType {
