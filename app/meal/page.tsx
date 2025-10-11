@@ -1,5 +1,5 @@
 "use client"
-import { useMealContext } from "@/context/meal-context";
+import { useMealContext, MealKey } from "@/context/meal-context";
 import InputSection from "@/components/manual/meal/input-section";
 import { Hero } from "@/components/manual/general/hero";
 import { ErrorState } from "@/components/manual/meal/error-state";
@@ -54,7 +54,7 @@ export default function Meal() {
                     <MealPlanHeader calories={caloriesSet} diet={dietSet} />
                     <MealGrid
                         isMobile={isMobile}
-                        meals={MEALS}
+                        
                         mealImage={mealImage}
                         mealType={mealType}
                         chartProps={chartProps}

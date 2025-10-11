@@ -6,7 +6,7 @@ import { useMealNutrition } from "@/hooks/use-meal-nutirition";
 import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID } from "@/types/meal/meal"
 import { ChartProps, PassedProps } from "@/types/meal/chart";
 
-const MEALS = ["breakfast", "lunch", "dinner"] as const;
+export const MEALS = ["breakfast", "lunch", "dinner"] as const;
 export type MealKey = typeof MEALS[number];
 const MOBILE_BREAKPOINT = 768;
 

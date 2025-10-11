@@ -3,11 +3,10 @@ import { MobileMeal } from "./mobile-meal";
 import { DesktopMeal } from "./desktop-meal";
 import { MealImage, MealType } from "@/types/meal/meal";
 import { ChartProps, PassedProps } from "@/types/meal/chart";
-import { MealKey } from "@/context/meal-context";
+import { MealKey, MEALS } from "@/context/meal-context";
 
 export interface MealGridProps {
     isMobile: boolean;
-    meals: MealKey[];
     mealImage: MealImage;
     mealType: MealType
     chartProps: PassedProps;
@@ -16,8 +15,7 @@ export interface MealGridProps {
 }
 
 export function MealGrid({ 
-    isMobile, 
-    meals, 
+    isMobile,
     mealImage, 
     mealType, 
     chartProps, 
@@ -28,7 +26,7 @@ export function MealGrid({
         return (
             <MobileMeal
                 images={mealImage}
-                meals={meals}
+                meals={MEALS}
                 chartProps={chartProps}
                 titles={mealType}
             />
@@ -37,7 +35,7 @@ export function MealGrid({
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {meals.map((meal: MealKey) => (
+            {MEALS.map((meal: MealKey) => (
                 <DesktopMeal
                     key={meal}
                     mealImage={mealImage[meal]}

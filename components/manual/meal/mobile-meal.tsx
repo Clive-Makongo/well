@@ -9,7 +9,7 @@ import { MealKey } from '@/context/meal-context'
 
 interface CarouselProps {
     images: MealImage
-    meals: MealKey[]
+    meals: readonly MealKey[]
     chartProps: PassedProps
     titles: MealType
 }
