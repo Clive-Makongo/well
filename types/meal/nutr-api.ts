@@ -59,3 +59,9 @@ export interface NutritionResponse {
     expires: number
     error: unknown
 }
+
+export interface PNutirtionResresponse {
+    breakfast: NutritionResponse | null
+    lunch: NutritionResponse | null
+    dinner: NutritionResponse | null
+}

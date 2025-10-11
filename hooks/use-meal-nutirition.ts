@@ -1,7 +1,7 @@
 "use client"
 import { useState, useCallback, useEffect, useMemo } from "react";
 import type { MealID, MealNutrition } from "@/types/meal/meal";
-import type { NutritionResponse } from "@/types/meal/nutr-api";
+import type { NutritionResponse, PNutirtionResresponse } from "@/types/meal/nutr-api";
 import type { PassedProps } from "@/types/meal/chart";
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
@@ -28,14 +28,14 @@ const get = async (mealID: number): Promise<NutritionResponse | null> => {
 }
 
 export const useMealNutrition = () => {
-    const [mealNutrition, setMealNutrition] = useState<MealNutrition>({
-        breakfast: [],
-        lunch: [],
-        dinner: []
+    const [mealNutrition, setMealNutrition] = useState<PNutirtionResresponse>({
+        breakfast: null,
+        lunch: null,
+        dinner: null
     });
     const [chartProps, setChartProps] = useState<PassedProps>({ breakfast: { calories: 0, value: [], label: [] }, lunch: { calories: 0, value: [], label: [] }, dinner: { calories: 0, value: [], label: [] } });
 
-    const extractNutrients = (mealData: any) => {
+    const extractNutrients = (mealData: NutritionResponse | null) => {
         const nutrients = Object.entries(mealData.nutrients);
         const filtered = nutrients.filter(([key, nutrient]: [string, any]) =>
             nutrient.unit === 'g' && nutrient.name !== "Net Carbohydrates"
@@ -112,9 +112,9 @@ export const useMealNutrition = () => {
 
     const resetNutrition = useCallback(() => {
         setMealNutrition({
-            breakfast: [],
-            lunch: [],
-            dinner: [],
+            breakfast: null,
+            lunch: null,
+            dinner: null,
         });
     }, []);
 

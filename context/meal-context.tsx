@@ -73,7 +73,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
             response &&
             Array.isArray(response.meals) &&
             response.meals.length >= 3 &&
-            response.meals.every((meal: any) => meal.title) &&
+            response.meals.every((meal) => meal.title) &&
             response.nutrients &&
             typeof response.nutrients.calories === "number"
         );
