@@ -22,6 +22,7 @@ export function MealGrid({
     isLoading 
 }: MealGridProps) {
     console.log(chartProps)
+    
     if (isMobile) {
         return (
             <MobileMeal

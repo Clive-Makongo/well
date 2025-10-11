@@ -114,6 +114,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     useEffect(() => {
         if (mealId.breakfast && mealId.lunch && mealId.dinner) {
             getMealNutrients(mealId);
+            console.log("0987655432")
         }
     }, [mealId, getMealNutrients]);
 
