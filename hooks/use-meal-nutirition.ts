@@ -6,7 +6,7 @@ import type { PassedProps } from "@/types/meal/chart";
 
 const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 
-const get = async (mealID: number): Promise<NutritionResponse> => { 
+const get = async (mealID: number): Promise<NutritionResponse | null> => { 
     // const response = await fetch(`https://api.spoonacular.com/recipes/${mealID}/nutritionWidget.json?apiKey=${API_KEY}`);
     // const data = await response.json()
     // console.log("DATA: ", data)
@@ -22,7 +22,7 @@ const get = async (mealID: number): Promise<NutritionResponse> => {
 
     } catch (error) {
         console.error('Error fetching meals:', error);
-        return { error }
+        return null
     }
 
 }
