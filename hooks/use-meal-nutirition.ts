@@ -83,7 +83,7 @@ export const useMealNutrition = () => {
             label: dinner.labels
         }
     });
-}, [mealNutrition, chartProps]);
+}, [mealNutrition]);
 
     const getMealNutrients = useCallback(async (mealId: MealID) => {
         if (mealId.breakfast != null && mealId.lunch != null && mealId.dinner != null) {
