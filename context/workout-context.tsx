@@ -23,7 +23,6 @@ export function WorkoutProvider({ children }:{children: ReactNode} ) {
         const currentId = active.id as number
         const newStatus = over.id as Workout['status']
 
-        console.log(`ACTIVE: ${active.id} OVER: ${over.id}`, workouts)
 
         setWorkOuts((prev) =>
             prev.map((workout) =>
@@ -34,8 +33,6 @@ export function WorkoutProvider({ children }:{children: ReactNode} ) {
                     : workout
             ) 
         )
-
-        console.log(`STAT ${over.id} ${active.id}`)
     }
 
     const value = { workouts,  handleDragEnd }

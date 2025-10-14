@@ -52,50 +52,19 @@ export const useMealNutrition = () => {
         };
     };
 
-    // const processedChartData = useMemo(() => {
-    //     // Check if all meals are null/undefined
-    //     if (!mealNutrition.breakfast && !mealNutrition.lunch && !mealNutrition.dinner) {
-    //         return { value: [], label: [], calories: 0 };
-    //     }
-
-    //     // Extract for each meal
-    //     const breakfast = extractNutrients(mealNutrition.breakfast);
-    //     const lunch = extractNutrients(mealNutrition.lunch);
-    //     const dinner = extractNutrients(mealNutrition.dinner);
-
-    //     setChartProps({
-    //         breakfast: {
-    //             calories: mealNutrition.breakfast?.nutrients[0]?.amount || 0,
-    //             value: breakfast.values,
-    //             label: breakfast.labels
-    //         },
-    //         lunch: {
-    //             calories: mealNutrition.lunch?.nutrients[0]?.amount || 0,
-    //             value: lunch.values,
-    //             label: lunch.labels
-    //         },
-    //         dinner: {
-    //             calories: mealNutrition.dinner?.nutrients[0]?.amount || 0,
-    //             value: dinner.values,
-    //             label: dinner.labels
-    //         }
-    //     });
-
-    // }, []);
-
+   
     useEffect(() => {
     // Check if all meals are null/undefined
         if (!mealNutrition.breakfast && !mealNutrition.lunch && !mealNutrition.dinner) {
-        console.log("fu")
         return;
     }
 
     // Extract for each meal
     const breakfast = extractNutrients(mealNutrition.breakfast);
     const lunch = extractNutrients(mealNutrition.lunch);
-        const dinner = extractNutrients(mealNutrition.dinner);
+    const dinner = extractNutrients(mealNutrition.dinner);
         
-        console.log(breakfast, lunch, dinner, " EXT")
+        
 
     setChartProps({
         breakfast: {
@@ -114,7 +83,6 @@ export const useMealNutrition = () => {
             label: dinner.labels
         }
     });
-        console.log(chartProps, " CHART")
 }, [mealNutrition, chartProps]);
 
     const getMealNutrients = useCallback(async (mealId: MealID) => {
@@ -130,7 +98,6 @@ export const useMealNutrition = () => {
                 console.error('Failed to fetch some meal nutrition data');
                 return;
             }
-            console.log(breakfast, lunch, dinner, " LUNCH")
             setMealNutrition({
                 breakfast: breakfast,
                 lunch: lunch,
@@ -138,10 +105,6 @@ export const useMealNutrition = () => {
             });
         }
     }, []);
-
-    useEffect(() => {
-        console.log(mealNutrition, chartProps, " LATTT")
-    }, [chartProps, mealNutrition]);
 
     const resetNutrition = useCallback(() => {
         setMealNutrition({
