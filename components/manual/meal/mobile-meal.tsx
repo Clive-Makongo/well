@@ -57,6 +57,9 @@ export function MobileMeal({images, meals, chartProps, titles}: CarouselProps) {
                 <h2 className="text-xl font-semibold text-gray-900">
                     Your Meals
                 </h2>
+                <p>
+                    Swipe to see your meals
+                </p>
                 <span className="text-sm text-gray-500">
                     {selectedIndex + 1} / {meals.length}
                 </span>

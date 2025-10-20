@@ -5,7 +5,7 @@ import type { NutritionResponse, PNutritionResponse } from "@/types/meal/nutr-ap
 import type { PassedProps } from "@/types/meal/chart";
 
 
-const API_KEY = process.env.NEXT_PUBLIC_KEY2;
+const API_KEY = process.env.NEXT_PUBLIC_KEY0;
 
 const get = async (mealID: number): Promise<NutritionResponse | null> => { 
     try {
