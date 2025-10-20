@@ -19,7 +19,7 @@ export function WorkoutCard({ workout }: { workout: Workout }): ReactNode {
             className={`
                 group relative bg-white rounded-lg border-2 border-gray-200 
                 overflow-hidden cursor-grab active:cursor-grabbing
-                hover:border-blue-400 hover:shadow-md
+                hover:border-blue-400 hover:shadow-md 
                 transition-all duration-200
                 ${isDragging ? 'opacity-50 shadow-xl scale-105 rotate-2' : 'opacity-100'}
             `}
