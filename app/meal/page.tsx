@@ -50,11 +50,10 @@ export default function Meal() {
             {error && <ErrorState error={error} />}
 
             {imagesLoaded && (
-                <div className="max-w-7xl mx-auto px-4 sm:px-0 lg:px-8 py-8">
+                <div className="max-w-7xl mx-auto px-1 sm:px-0 lg:px-8 py-8">
                     <MealPlanHeader calories={caloriesSet} diet={dietSet} />
                     <MealGrid
                         isMobile={isMobile}
-                        
                         mealImage={mealImage}
                         mealType={mealType}
                         chartProps={chartProps}

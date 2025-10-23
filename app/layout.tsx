@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel, Lobster_Two } from "next/font/google";
+import { Lobster_Two } from "next/font/google";
 import { SidebarProvider, Sidebar, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/manual/general/app-sidebar";
 import "./globals.css";

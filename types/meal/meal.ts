@@ -1,6 +1,7 @@
 import { NutritionResponse } from "@/types/meal/nutr-api";
 
 export interface MealType {
+    [key: string]: string
     breakfast: string;
     lunch: string;
     dinner: string;

@@ -25,7 +25,7 @@ export function MealGrid({
         return (
             <MobileMeal
                 images={mealImage}
-                meals={MEALS}
+                meals={Object.keys(mealType) as MealKey[]}
                 chartProps={chartProps}
                 titles={mealType}
             />
