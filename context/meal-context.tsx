@@ -48,6 +48,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     // Status state
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+    const [isFormVal, setIsFormVal] = useState<boolean>(false);
 
     // First API call to get meals
     const { mealType, nutrition, mealImage, mealId, generateMeals, setMealImage } = useMealGenerate();
@@ -66,6 +67,10 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
         const calories = Number(caloriesSet);
         return calories > 0 && calories <= 5000 && dietSet.trim().length > 0;
     }, [caloriesSet, dietSet]);
+
+    useEffect(() => {
+        isFormValid()
+    },[caloriesSet, dietSet])
 
     // --- Helpers ---
     const validateApiResponse = (response: GenApiResponse | null): response is GenApiResponse => {

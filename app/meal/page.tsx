@@ -27,7 +27,7 @@ export default function Meal() {
     } = useMealContext();
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 w-full">
+        <div className="min-h-screen bg-background w-screen">
             <Hero
                 title="Meal Planner"
                 tag="Generate personalized meal plans tailored to your dietary needs and calorie goals"

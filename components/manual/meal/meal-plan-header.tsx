@@ -8,10 +8,10 @@ interface MealPlanHeaderProps {
 export function MealPlanHeader({ calories, diet }: MealPlanHeaderProps) {
     return (
         <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-2xl md:text-3xl font-med text-primary mb-2">
                 Your Meal Plan
             </h2>
-            <div className="flex flex-wrap items-center gap-2 text-gray-600">
+            <div className="flex flex-wrap items-center gap-2 text-primary">
                 <div className="flex items-center gap-2">
                     <svg 
                         className="w-5 h-5 text-blue-600" 

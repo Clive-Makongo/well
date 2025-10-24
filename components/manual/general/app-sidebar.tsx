@@ -76,7 +76,7 @@ export function AppSidebar() {
       <Sidebar collapsible="offcanvas">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel></SidebarGroupLabel>
+            <SidebarGroupLabel>Fuel Fit</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {items.map((item) => (

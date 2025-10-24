@@ -30,11 +30,10 @@ export interface MealSegmentProps {
 }
 
 export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSegmentProps ): ReactNode {
-    const [open, setOpen] = useState<boolean>(false);
 
     if (isLoading) {
         return (
-            <div className="flex flex-col border-black border text-center meal-segment rounded-lg m-2 h-full">
+            <div className="flex flex-col border-primary text-center meal-segment rounded-lg m-2 h-full">
                 <div className="w-full h-48 bg-gray-200 animate-pulse flex items-center justify-center">
                     <span className="text-gray-500">Loading...</span>
                 </div>
@@ -49,7 +48,7 @@ export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSeg
 
   return (
  
-          <Card>
+          <Card className="bg-background flex flex-col border-primary meal-segment rounded-lg m-2 h-full justify-evenly">
               <CardHeader>
                   <CardTitle>
                       {mealType}

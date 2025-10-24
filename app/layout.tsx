@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <Provider>
           <SidebarProvider>
-            <SidebarTrigger className="animate-pulse bg-slate-300 rounded-xl p-4 sticky top-0 z-50" size={'default'}/>
+            <SidebarTrigger className="p-6 flex flex-col sm:hidden sticky w-10 top-0 z-50" size={'default'}/>
             <AppSidebar/>
             {children}
             </SidebarProvider>

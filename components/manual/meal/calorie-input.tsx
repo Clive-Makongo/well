@@ -1,5 +1,4 @@
-// import React from "react";
-
+import { Input } from "@/components/ui/input";
 interface CalorieInputProps {
     value: string;
     onChange: (val: string) => void;
@@ -16,16 +15,16 @@ export function CalorieInput({ value, onChange, disabled = false }: CalorieInput
                 Daily Calorie Target
             </label>
             <div className="relative">
-                <input
+                <Input
                     id="calories"
                     className={`
                         w-full px-4 py-3 rounded-lg
                         border-2 transition-colors
                         ${disabled 
-                            ? 'bg-gray-50 border-gray-200 cursor-not-allowed' 
-                            : 'bg-white border-gray-300 hover:border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
+                            ? 'bg-gray-50 border-primary cursor-not-allowed' 
+                            : 'bg-white border-accent hover:border-accent-foreground hover:ring-2 hover:ring-accent'
                         }
-                        outline-none text-gray-900 placeholder-gray-400
+                        outline-none text-primary 
                     `}
                     type="number"
                     min="1"
