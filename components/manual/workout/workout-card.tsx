@@ -19,9 +19,9 @@ export function WorkoutCard({ workout }: { workout: Workout }): ReactNode {
             className={`
                 workout-card-draggable group relative bg-background rounded-lg border-2 border-primary
                 overflow-hidden cursor-grab active:cursor-grabbing
-                hover:border-chart-2 hover:shadow-md 
+                hover:border-muted-foreground hover:shadow-md
                 transition-all duration-200
-                ${isDragging ? 'opacity-50 shadow-xl scale-50 rotate-2' : ' scale-90 opacity-100'}
+                ${isDragging ? 'opacity-50 shadow-xl scale-80 rotate-[0.7deg]' : ' scale-70 opacity-100'}
             `}
             {...attributes}
             {...listeners}
@@ -56,7 +56,7 @@ export function WorkoutCard({ workout }: { workout: Workout }): ReactNode {
 
             {/* Content Section */}
             <div className="p-3">
-                <h4 className="font-semibold text-gray-900 text-sm leading-tight line-clamp-2">
+                <h4 className="font-semibold text-primary text-md leading-tight line-clamp-2">
                     {workout.title}
                 </h4>
                 

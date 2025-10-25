@@ -21,27 +21,28 @@ export const workoutOptions: Workout[] = [
   {
     id: 2,
     Image: lower,
-    status:'Exercises',
+    status: 'Exercises',
     title: "Lower Body",
     description:
       "Lower body workouts are great for building strength and toning your legs and glutes.",
-  },
-  {
-    id: 3,
-    Image: yoga_icon,
-    status:'Exercises',
-    title: "Yoga",
-    description:
-      "Yoga is a great way to improve flexibility, strength, and your overall balance.",
-  },
-  {
-    id: 4,
-    Image: pilates,
-    status:'Exercises',
-    title: "Pilates",
-    description:
-      "Pilates is a great way to improve core strength, flexibility, and especially posture.",
-  },
+  }
+  // },
+  // {
+  //   id: 3,
+  //   Image: yoga_icon,
+  //   status:'Exercises',
+  //   title: "Yoga",
+  //   description:
+  //     "Yoga is a great way to improve flexibility, strength, and your overall balance.",
+  // },
+  // {
+  //   id: 4,
+  //   Image: pilates,
+  //   status:'Exercises',
+  //   title: "Pilates",
+  //   description:
+  //     "Pilates is a great way to improve core strength, flexibility, and especially posture.",
+  ,
   {
     id: 5,
     Image: relax,

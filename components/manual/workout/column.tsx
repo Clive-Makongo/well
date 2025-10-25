@@ -16,19 +16,19 @@ export function Column({ column, workouts }: ColumnProps): ReactNode {
     backgroundColor: isOver ? 'chart-2' : undefined,
     };
 
-    const hoverColour = isOver ? 'bg-chart-2' : undefined;
+    const hoverColour = isOver ? 'bg-muted-foreground' : undefined;
     
     return (
         <div
             key={column.id}
             style={style}
             ref={setNodeRef}
-            className={`${hoverColour} workout-column-droppable h-120 w-30 rounded-lg bg-background border-2 border-primary m-2`}
+            className={`${hoverColour} workout-column-droppable flex flex-col w-30 h-120 rounded-lg bg-background border-2 border-primary m-2`}
         >
             <div
                 className="flex flex-row justify-between"
             >
-                <span className="p-4 font-bold">{column.id}</span>
+                <span className="p-4 underline font-bold">{column.id}</span>
                 <span className="border-1 border-primary rounded-xl p-1">{workouts.length}</span>
             </div>
             
