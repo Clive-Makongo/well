@@ -23,10 +23,16 @@ export  function ChartModal({ calories, value, label }: ChartProps): ReactNode {
           open={open}
           onClose={() => setOpen(false)}
           center
-      >
-          <h1>
-              Calories: {calories}
-          </h1>
+            >
+                <div>
+                    <h1 className='underline'>
+                    Calories: {calories}
+                    </h1>
+                    <p className='text-xs text-muted-foreground'>
+                        hover/tap to see your daily amounts
+                    </p>
+                </div>
+    
           <Chart value={value} label={label} />
             </Modal>
         </>
