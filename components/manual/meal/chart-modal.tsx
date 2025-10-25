@@ -18,15 +18,21 @@ export  function ChartModal({ calories, value, label }: ChartProps): ReactNode {
       <Modal
           classNames={{
               overlay: "bg-black/50 fixed inset-0 flex items-center justify-center",
-              modal: "bg-white rounded-2xl border-primary border-2 shadow-xl p-6 w-96 max-w-full text-center",
+              modal: "bg-background rounded-2xl border-primary border-2 shadow-xl p-6 w-80 max-w-10/11 text-center",
           }}
           open={open}
           onClose={() => setOpen(false)}
           center
-      >
-          <h1>
-              Calories: {calories}
-          </h1>
+            >
+                <div>
+                    <h1 className='underline'>
+                    Calories: {calories}
+                    </h1>
+                    <p className='text-xs text-muted-foreground'>
+                        hover/tap to see your daily amounts
+                    </p>
+                </div>
+    
           <Chart value={value} label={label} />
             </Modal>
         </>
