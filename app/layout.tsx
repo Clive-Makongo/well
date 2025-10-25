@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel, Lobster_Two } from "next/font/google";
-import { SidebarProvider, Sidebar, SidebarTrigger } from "@/components/ui/sidebar";
+import { Lobster_Two } from "next/font/google";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/manual/general/app-sidebar";
 import "./globals.css";
 import { Provider } from "@/context/my-providers";
@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <Provider>
           <SidebarProvider>
-            <SidebarTrigger className="animate-pulse bg-slate-300 rounded-xl p-4 sticky top-0 z-50" size={'default'}/>
+            <SidebarTrigger className="fixed border-2 border-primary bg-background rounded-full flex flex-col pt-12 pb-8 sm:hidden w-15 top-0 z-50" size={'default'}/>
             <AppSidebar/>
             {children}
             </SidebarProvider>

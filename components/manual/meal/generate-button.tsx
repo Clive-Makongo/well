@@ -16,8 +16,8 @@ export function GenerateButton({ onClick, disabled, isLoading }: GenerateButtonP
                 px-8 py-3 rounded-lg font-semibold text-base
                 transition-all duration-200
                 ${disabled
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg active:scale-95'
+                    ? 'bg-primary-foreground text-muted-foreground cursor-not-allowed'
+                    : 'text-input sm:bg-primary-foreground hover:bg-primary sm:text-foreground hover:text-primary-foreground hover:shadow-lg active:scale-95'
                 }
             `}
         >

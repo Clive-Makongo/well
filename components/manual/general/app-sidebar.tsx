@@ -1,5 +1,5 @@
 "use client"
-import { Calendar, Home, UtensilsCrossed, Dumbbell, Heart } from "lucide-react"
+import { Home, UtensilsCrossed, Dumbbell } from "lucide-react"
 import Link from "next/link"
 import {
   Sidebar,
@@ -76,7 +76,7 @@ export function AppSidebar() {
       <Sidebar collapsible="offcanvas">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel></SidebarGroupLabel>
+            <SidebarGroupLabel>Fuel Fit</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {items.map((item) => (

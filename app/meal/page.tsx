@@ -1,5 +1,5 @@
 "use client"
-import { useMealContext, MealKey } from "@/context/meal-context";
+import { useMealContext } from "@/context/meal-context";
 import InputSection from "@/components/manual/meal/input-section";
 import { Hero } from "@/components/manual/general/hero";
 import { ErrorState } from "@/components/manual/meal/error-state";
@@ -27,7 +27,7 @@ export default function Meal() {
     } = useMealContext();
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 w-full">
+        <div className="min-h-screen bg-background w-screen">
             <Hero
                 title="Meal Planner"
                 tag="Generate personalized meal plans tailored to your dietary needs and calorie goals"
@@ -50,11 +50,10 @@ export default function Meal() {
             {error && <ErrorState error={error} />}
 
             {imagesLoaded && (
-                <div className="max-w-7xl mx-auto px-4 sm:px-0 lg:px-8 py-8">
+                <div className="max-w-7xl mx-auto px-1 sm:px-0 lg:px-8 py-8">
                     <MealPlanHeader calories={caloriesSet} diet={dietSet} />
                     <MealGrid
                         isMobile={isMobile}
-                        
                         mealImage={mealImage}
                         mealType={mealType}
                         chartProps={chartProps}

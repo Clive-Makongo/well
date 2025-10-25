@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, ReactNode } from 'react';
-import { DndContext, DragEndEvent } from '@dnd-kit/core';
+import React, { ReactNode } from 'react';
+import { DndContext } from '@dnd-kit/core';
 import { Column } from './column';
 import { useWorkoutContext } from '@/context/workout-context';
 import { COL } from '@/types/workout/workout';

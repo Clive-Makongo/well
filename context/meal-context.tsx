@@ -4,7 +4,7 @@ import { useWindowSize } from "@/hooks/use-window-size";
 import { useMealGenerate} from "@/hooks/use-meal-generate";
 import { useMealNutrition } from "@/hooks/use-meal-nutirition";
 import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID, MealNutrition } from "@/types/meal/meal"
-import { ChartProps, PassedProps } from "@/types/meal/chart";
+import { PassedProps } from "@/types/meal/chart";
 
 export const MEALS = ["breakfast", "lunch", "dinner"] as const;
 export type MealKey = typeof MEALS[number];

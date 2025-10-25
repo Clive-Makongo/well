@@ -2,7 +2,7 @@
 import { useState, useCallback } from "react";
 import type { GenApiResponse, MealID, MealImage, MealType, NutritionalInfo } from "@/types/meal/meal";
 
-const API_KEY = process.env.NEXT_PUBLIC_KEY0;
+const API_KEY = process.env.NEXT_PUBLIC_KEY1;
 
 export const useMealGenerate = () => {
     // Meal/nutrition state
