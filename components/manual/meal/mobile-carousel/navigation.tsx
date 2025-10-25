@@ -15,7 +15,7 @@ export default function Navigation({ scrollPrev, canScrollPrev, scrollNext, canS
                     onClick={scrollPrev}
                     disabled={!canScrollPrev}
                     className={`
-                        md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90
+                        md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background
                         w-10 h-10 items-center justify-center
                         
                         transition-all duration-200
@@ -26,8 +26,8 @@ export default function Navigation({ scrollPrev, canScrollPrev, scrollNext, canS
                     `}
                     aria-label="Previous meal"
                 >
-                    
-                    <ChevronLeft className="w-5 h-5 text-gray-900" />
+
+                    <ChevronLeft className="w-5 h-5 text-primary" />
                 </button>
 
                 <button
@@ -35,8 +35,8 @@ export default function Navigation({ scrollPrev, canScrollPrev, scrollNext, canS
                     disabled={!canScrollNext}
                     className={`
                         md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10
-                        w-10 h-10 items-center justify-center
-                        bg-white/90 backdrop-blur-sm shadow-lg
+                        w-10 h-10 flex items-center justify-end
+                        bg-background backdrop-blur-sm shadow-lg
                         transition-all duration-200
                         ${canScrollNext 
                             ? 'opacity-50 group-hover:opacity-100 hover:bg-white hover:scale-110' 
@@ -45,7 +45,7 @@ export default function Navigation({ scrollPrev, canScrollPrev, scrollNext, canS
                     `}
                     aria-label="Next meal"
                 >
-              <ChevronRight className="w-5 h-5 text-gray-900" />
+              <ChevronRight className="w-5 h-5 text-primary" />
                 </button>
       </>
   )

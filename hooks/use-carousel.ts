@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 
 export const useCarousel = () => {

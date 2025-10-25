@@ -273,7 +273,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <Hamburger className="" />
+      <Hamburger className="scale-250" />
       <p>Menu</p>
       <span className="sr-only">Toggle Sidebar</span>
     </Button>

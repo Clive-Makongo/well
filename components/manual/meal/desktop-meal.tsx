@@ -10,9 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import Image from "next/image"
-import React, {ReactNode, useState } from 'react'
-import Modal from "react-responsive-modal"
-import Chart from "@/components/manual/meal/chart"
+import React, {ReactNode } from 'react'
 import { ChartModal } from "./chart-modal"
 import 'react-responsive-modal/styles.css';
 

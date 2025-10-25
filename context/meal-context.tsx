@@ -4,7 +4,7 @@ import { useWindowSize } from "@/hooks/use-window-size";
 import { useMealGenerate} from "@/hooks/use-meal-generate";
 import { useMealNutrition } from "@/hooks/use-meal-nutirition";
 import { MealImage, MealType, GenApiResponse, NutritionalInfo, MealID, MealNutrition } from "@/types/meal/meal"
-import { ChartProps, PassedProps } from "@/types/meal/chart";
+import { PassedProps } from "@/types/meal/chart";
 
 export const MEALS = ["breakfast", "lunch", "dinner"] as const;
 export type MealKey = typeof MEALS[number];
@@ -48,7 +48,6 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     // Status state
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const [isFormVal, setIsFormVal] = useState<boolean>(false);
 
     // First API call to get meals
     const { mealType, nutrition, mealImage, mealId, generateMeals, setMealImage } = useMealGenerate();
@@ -67,10 +66,6 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
         const calories = Number(caloriesSet);
         return calories > 0 && calories <= 5000 && dietSet.trim().length > 0;
     }, [caloriesSet, dietSet]);
-
-    useEffect(() => {
-        isFormValid()
-    },[caloriesSet, dietSet])
 
     // --- Helpers ---
     const validateApiResponse = (response: GenApiResponse | null): response is GenApiResponse => {

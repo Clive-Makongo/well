@@ -11,7 +11,7 @@ export  function ChartModal({ calories, value, label }: ChartProps): ReactNode {
         <>
             <Button
                     onClick={() => setOpen(true)}
-                    className="bg-accent  hover:bg-accent-foreground text-primary p-2 hover:text-input rounded text-sm font-medium"
+                    className="text-input sm:bg-accent hover:bg-accent-foreground sm:text-primary p-2 hover:text-input rounded text-sm font-medium"
                 >
                     View Nutrition
                 </Button>

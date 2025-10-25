@@ -40,7 +40,7 @@ export function MobileMeal({ images, meals, chartProps, titles }: CarouselProps)
     }, [emblaApi, onSelect])
     
     return (
-        <div className="w-10/11 max-w-2xl mx-auto space-y-4 pb-6">
+        <div className="w-full max-w-2xl mx-auto space-y-4 pb-6">
            <MobileMealHeader selectedIndex={selectedIndex} />
             <div className="relative group">
                 <Carousel
@@ -66,8 +66,8 @@ export function MobileMeal({ images, meals, chartProps, titles }: CarouselProps)
                         className={`
                             h-2 rounded-full transition-all duration-300
                             ${index === selectedIndex 
-                                ? 'bg-blue-600 w-8' 
-                                : 'bg-gray-300 w-2 hover:bg-gray-400'
+                                ? 'bg-primary w-8' 
+                                : 'bg-muted-foreground w-2'
                             }
                         `}
                         aria-label={`Go to ${meals[index]} meal`}

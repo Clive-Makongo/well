@@ -24,7 +24,7 @@ export default function Carousel({ images, meals, chartProps, titles, emblaRef }
                                 key={id}
                                 className="embla__slide flex-[0_0_100%] min-w-0 px-3"
                             >
-                                <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                                <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-primary">
                                     {/* Image container with fixed aspect ratio */}
                                     <div className="relative w-full aspect-[4/3] bg-gray-100">
                                         <Image
