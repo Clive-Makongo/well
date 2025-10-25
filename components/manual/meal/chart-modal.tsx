@@ -18,7 +18,7 @@ export  function ChartModal({ calories, value, label }: ChartProps): ReactNode {
       <Modal
           classNames={{
               overlay: "bg-black/50 fixed inset-0 flex items-center justify-center",
-              modal: "bg-white rounded-2xl border-primary border-2 shadow-xl p-6 w-96 max-w-full text-center",
+              modal: "bg-background rounded-2xl border-primary border-2 shadow-xl p-6 w-80 max-w-10/11 text-center",
           }}
           open={open}
           onClose={() => setOpen(false)}
