@@ -29,7 +29,6 @@ export function Column({ column, workouts }: ColumnProps): ReactNode {
                 className="flex flex-row justify-between"
             >
                 <span className="p-4 underline font-bold">{column.id}</span>
-                <span className="border-1 border-primary rounded-xl p-1">{workouts.length}</span>
             </div>
             
             {workouts.map((work) => (
