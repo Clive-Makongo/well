@@ -38,8 +38,7 @@ const items = [
 
 export function AppSidebar() {
   const { isMobile, setOpenMobile } = useSidebar()
-  useEffect(() => { console.log(isMobile, " help") }, [isMobile])
-
+  
   const handleClick = () => {
     if (isMobile) { setOpenMobile(false) }
   }

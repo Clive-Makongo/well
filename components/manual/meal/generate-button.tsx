@@ -17,7 +17,7 @@ export function GenerateButton({ onClick, disabled, isLoading }: GenerateButtonP
                 transition-all duration-200
                 ${disabled
                     ? 'bg-primary-foreground text-muted-foreground cursor-not-allowed'
-                    : 'text-input sm:bg-primary-foreground hover:bg-primary sm:text-foreground hover:text-primary-foreground hover:shadow-lg active:scale-95'
+                    : 'text-white sm:bg-primary hover:bg-primary sm:text-input hover:scale-101 hover:shadow-sm active:scale-95'
                 }
             `}
         >

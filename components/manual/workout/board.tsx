@@ -19,7 +19,7 @@ export function Board(): ReactNode {
     const {workouts, handleDragEnd} = useWorkoutContext()
     
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 w-full p-6">
+        <div className="min-h-screen bg-gradient-to-br from-background to-accent w-full p-6">
             <div className="max-w-[1600px] mx-auto space-y-6">
                 {/* Header */}
                 <Hero
