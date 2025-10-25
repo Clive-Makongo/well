@@ -17,17 +17,17 @@ export function WorkoutCard({ workout }: { workout: Workout }): ReactNode {
             ref={setNodeRef}
             style={style}
             className={`
-                group relative bg-white rounded-lg border-2 border-gray-200 
+                workout-card-draggable group relative bg-background rounded-lg border-2 border-primary
                 overflow-hidden cursor-grab active:cursor-grabbing
-                hover:border-blue-400 hover:shadow-md 
+                hover:border-chart-2 hover:shadow-md 
                 transition-all duration-200
-                ${isDragging ? 'opacity-50 shadow-xl scale-105 rotate-2' : 'opacity-100'}
+                ${isDragging ? 'opacity-50 shadow-xl scale-50 rotate-2' : ' scale-90 opacity-100'}
             `}
             {...attributes}
             {...listeners}
         >
             {/* Image Section */}
-            <div className="relative w-full aspect-video bg-gray-100">
+            <div className="relative w-full aspect-video bg-background">
                 <Image
                     src={workout.Image}
                     fill
@@ -39,7 +39,7 @@ export function WorkoutCard({ workout }: { workout: Workout }): ReactNode {
                 {/* Drag indicator overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end justify-center pb-2">
                     <svg 
-                        className="w-6 h-6 text-white" 
+                        className="w-6 h-6 text-primary bg-primary-foreground rounded-full p-1" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
