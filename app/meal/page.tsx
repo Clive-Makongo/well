@@ -22,6 +22,7 @@ export default function Meal() {
         mealImage,
         handleGenerateMeal,
         isFormValid,
+        nutrition,
         MEALS,
         chartProps
     } = useMealContext();
@@ -51,7 +52,7 @@ export default function Meal() {
 
             {imagesLoaded && (
                 <div className="max-w-7xl mx-auto px-1 sm:px-0 lg:px-8 py-8">
-                    <MealPlanHeader calories={caloriesSet} diet={dietSet} />
+                    <MealPlanHeader calories={nutrition.calories} diet={dietSet} />
                     <MealGrid
                         isMobile={isMobile}
                         mealImage={mealImage}

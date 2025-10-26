@@ -1,7 +1,7 @@
 import React from "react";
 
 interface MealPlanHeaderProps {
-    calories: string;
+    calories: number;
     diet: string;
 }
 
