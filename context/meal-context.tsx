@@ -64,7 +64,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     // --- Validation ---
     const isFormValid = useCallback(() => {
         const calories = Number(caloriesSet);
-        return calories > 0 && calories <= 5000 && dietSet.trim().length > 0;
+        return calories > 499 && calories <= 5000 && dietSet.trim().length > 0;
     }, [caloriesSet, dietSet]);
 
     // --- Helpers ---
