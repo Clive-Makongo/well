@@ -6,7 +6,6 @@
   - [Table of Contents](#table-of-contents)
   - [Full Description](#full-description)
   - [Table of Contents](#table-of-contents-1)
-  - [Full Description](#full-description-1)
   - [Features](#features)
   - [How to Use](#how-to-use)
   - [Screenshot](#screenshot)
@@ -23,22 +22,17 @@
   - [License](#license-1)
 
 ## Full Description
-Our page is to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements.It also has a workout planner to help you plan your fitness. 
+An app to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements.It also has a workout planner to help you plan your fitness. 
 
 
-URL of deployed app:  https://group4-wellness-app.netlify.app/# Wellness App
+URL of deployed app:  https://fuel-fit-two.vercel.app/
 
 ## Table of Contents
-
-- [Full Description](#full-description)
 - [Features](#features)
 - [How to Use](#how-to-use)
 - [Screenshot](#screenshot)
 - [Credits](#credits)
 - [License](#license)
-
-## Full Description
-Our page is to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements.It also has a workout planner to help you plan your fitness. And last but not least, a self-care page, where you can input a skincare routine and see helpful stretching videos
 
 
 URL of deployed app:  https://fuel-fit-two.vercel.app/ 
@@ -51,7 +45,6 @@ URL of deployed app:  https://fuel-fit-two.vercel.app/
    - 3 meals are generated aswell as nutritional information
 
 2. **Excercise Planner:**
-
    - Drag and drop exercise cards
 
 
@@ -70,14 +63,10 @@ Download by pressing the green code button and git clone into your terminal . Al
    #### APIS
   spoonacular
   #### Packages
-  react-youtube
-  nanoid
-  react-dom
-  react router
-  axios
-  beautiful-dnd
-  uuid
-  framer-motion
+  dnd-kit
+  chartjs
+  lucide-react
+
 ## Technologies used
 Bootstrap
 React
