@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wellness App
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+- [Wellness App](#wellness-app)
+  - [Table of Contents](#table-of-contents)
+  - [Full Description](#full-description)
+  - [Table of Contents](#table-of-contents-1)
+  - [Full Description](#full-description-1)
+  - [Features](#features)
+  - [How to Use](#how-to-use)
+  - [Screenshot](#screenshot)
+  - [Credits](#credits)
+      - [APIS](#apis)
+      - [Packages](#packages)
+  - [Technologies used](#technologies-used)
+  - [License](#license)
+  - [Features](#features-1)
+  - [How to Use](#how-to-use-1)
+  - [Screenshot](#screenshot-1)
+  - [Credits](#credits-1)
+      - [APIS](#apis-1)
+  - [License](#license-1)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Full Description
+Our page is to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements.It also has a workout planner to help you plan your fitness. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+URL of deployed app:  https://group4-wellness-app.netlify.app/# Wellness App
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Table of Contents
 
-## Learn More
+- [Full Description](#full-description)
+- [Features](#features)
+- [How to Use](#how-to-use)
+- [Screenshot](#screenshot)
+- [Credits](#credits)
+- [License](#license)
 
-To learn more about Next.js, take a look at the following resources:
+## Full Description
+Our page is to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements.It also has a workout planner to help you plan your fitness. And last but not least, a self-care page, where you can input a skincare routine and see helpful stretching videos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+URL of deployed app:  https://fuel-fit-two.vercel.app/ 
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Meal Planner:**
+   - Users start by selecting a dietry requirement and/or calories or optionally leave it blank.
+   - 3 meals are generated aswell as nutritional information
+
+2. **Excercise Planner:**
+
+   - Drag and drop exercise cards
+
+
+
+## How to Use
+Download by pressing the green code button and git clone into your terminal . Alternatively, follow the link in the top of the file to access the site 
+
+
+## Screenshot
+<img width="917" alt="image" src="https://github.com/angelica-zach/wellness-app/assets/147160016/2ceeed5d-af5f-47f1-9e89-ff01ff069916">
+
+
+
+## Credits
+
+   #### APIS
+  spoonacular
+  #### Packages
+  react-youtube
+  nanoid
+  react-dom
+  react router
+  axios
+  beautiful-dnd
+  uuid
+  framer-motion
+## Technologies used
+Bootstrap
+React
+
+## License
+MIT License
+
+Copyright (c) 2023 angelica-zach
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Features
+
+
+1. **Meal Planner:**
+   - Users start by selecting a dietry requirement and calories.
+   - 3 meals are generated aswell as nutritional information
+
+2. **Excercise Planner:**
+
+   - Drag and drop exercise cards
+
+## How to Use
+Download by pressing the green code button and git clone into your terminal . Alternatively, follow the link in the top of the file to access the site 
+
+
+## Screenshot
+<img width="917" alt="image" src="https://github.com/angelica-zach/wellness-app/assets/147160016/2ceeed5d-af5f-47f1-9e89-ff01ff069916">
+
+
+
+## Credits
+
+   #### APIS
+  spoonacular
+
+
+## License
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
