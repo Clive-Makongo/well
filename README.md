@@ -26,7 +26,7 @@
 Our page is to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements.It also has a workout planner to help you plan your fitness. 
 
 
-URL of deployed app:  https://group4-wellness-app.netlify.app/# Wellness App
+URL of deployed app:  https://fuel-fit-two.vercel.app/
 
 ## Table of Contents
 
