@@ -9,6 +9,7 @@ export interface MealGridProps {
     isMobile: boolean;
     mealImage: MealImage;
     mealType: MealType
+    mealRecipe: MealType
     chartProps: PassedProps;
     isLoading: boolean;
     mobileChartProps?: ChartProps
@@ -17,7 +18,8 @@ export interface MealGridProps {
 export function MealGrid({ 
     isMobile,
     mealImage, 
-    mealType, 
+    mealType,
+    mealRecipe,
     chartProps, 
     isLoading 
 }: MealGridProps) {
@@ -28,6 +30,7 @@ export function MealGrid({
                 meals={Object.keys(mealType) as MealKey[]}
                 chartProps={chartProps}
                 titles={mealType}
+                mealRecipe={mealRecipe}
             />
         );
     }
@@ -39,6 +42,7 @@ export function MealGrid({
                     key={meal}
                     mealImage={mealImage[meal]}
                     mealType={mealType[meal]}
+                    mealRecipe={mealRecipe[meal]}
                     chartProps={chartProps[meal]}
                     isLoading={isLoading}
                 />

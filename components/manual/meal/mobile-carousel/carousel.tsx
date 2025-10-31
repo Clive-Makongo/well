@@ -5,17 +5,19 @@ import Image from 'next/image'
 import { ChartModal } from '../chart-modal'
 import { PassedProps } from '@/types/meal/chart'
 import { EmblaViewportRefType } from 'embla-carousel-react'
+import { Button } from '@/components/ui/button'
 
 
 interface CarouselProps { 
-    images: MealImage
+    images: MealImage,
+    mealRecipe: MealType,
     meals: MealKey[],
     chartProps: PassedProps
     titles: MealType
     emblaRef: EmblaViewportRefType
 }
 
-export default function Carousel({ images, meals, chartProps, titles, emblaRef }: CarouselProps) {
+export default function Carousel({ images, meals, mealRecipe, chartProps, titles, emblaRef }: CarouselProps) {
   return (
     <div className="embla overflow-hidden rounded-xl" ref={emblaRef}>
                     <div className="embla__container flex">
@@ -26,7 +28,7 @@ export default function Carousel({ images, meals, chartProps, titles, emblaRef }
                             >
                                 <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-primary">
                                     {/* Image container with fixed aspect ratio */}
-                                    <div className="relative w-full aspect-[4/3] bg-gray-100">
+                                    <div className="relative w-full aspect-[4/3] bg-background">
                                         <Image
                                             src={images[meal]}
                                             alt={titles[meal]}
@@ -54,12 +56,21 @@ export default function Carousel({ images, meals, chartProps, titles, emblaRef }
                                         </h3>
                                         
                                         {chartProps && chartProps[meal] && (
-                                            <div className="pt-2 border-t border-gray-100">
+                                            <div className="flex flex-row justify-between pt-2 border-t border-accent">
                                                 <ChartModal
                                                     calories={chartProps[meal].calories}
                                                     value={chartProps[meal].value}
                                                     label={chartProps[meal].label}
                                                 />
+
+                                                <Button
+                                                    className='bg-primary text:input'
+                                                >
+                                                    <a href={mealRecipe[meal]} target="_blank" rel="noopener noreferrer">
+                                                        View Recipe
+                                                    </a>
+                                                    
+                                                </Button>
                                             </div>
                                         )}
                                     </div>

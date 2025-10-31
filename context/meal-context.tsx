@@ -25,6 +25,7 @@ interface MealContextType {
     mealId: MealID;
     mealType: MealType;
     mealImage: MealImage;
+    mealRecipe: MealType
     setMealImage: React.Dispatch<React.SetStateAction<MealImage>>;
     mealNutrition: MealNutrition; 
     imagesLoaded: boolean;
@@ -50,7 +51,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
     const [error, setError] = useState<string | null>(null);
 
     // First API call to get meals
-    const { mealType, nutrition, mealImage, mealId, generateMeals, setMealImage } = useMealGenerate();
+    const { mealType, nutrition, mealImage, mealRecipe, mealId, generateMeals, setMealImage } = useMealGenerate();
 
     //second API call to get meal nutrition data
     const { mealNutrition, chartProps, getMealNutrients } = useMealNutrition()
@@ -129,6 +130,7 @@ export const MealProvider = ({ children }: { children: ReactNode }) => {
         mealId,
         mealType,
         mealImage,
+        mealRecipe,
         mealNutrition,
         nutrition,
         handleGenerateMeal,
