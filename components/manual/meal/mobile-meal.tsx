@@ -11,11 +11,12 @@ import Navigation from './mobile-carousel/navigation'
 interface CarouselProps {
     images: MealImage
     meals: MealKey[],
+    mealRecipe: MealType,
     chartProps: PassedProps
     titles: MealType
 }
 
-export function MobileMeal({ images, meals, chartProps, titles }: CarouselProps) {
+export function MobileMeal({ images, meals, mealRecipe, chartProps, titles }: CarouselProps) {
 
     const {
         emblaRef,
@@ -46,6 +47,7 @@ export function MobileMeal({ images, meals, chartProps, titles }: CarouselProps)
                 <Carousel
                     images={images}
                     meals={meals}
+                    mealRecipe={mealRecipe}
                     chartProps={chartProps}
                     titles={titles}
                     emblaRef={emblaRef}

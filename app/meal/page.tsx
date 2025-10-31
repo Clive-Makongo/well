@@ -20,6 +20,7 @@ export default function Meal() {
         imagesLoaded,
         mealType,
         mealImage,
+        mealRecipe,
         handleGenerateMeal,
         isFormValid,
         nutrition,
@@ -59,6 +60,7 @@ export default function Meal() {
                         mealType={mealType}
                         chartProps={chartProps}
                         isLoading={isLoading}
+                        mealRecipe={mealRecipe}
                     />
                 </div>
             )}

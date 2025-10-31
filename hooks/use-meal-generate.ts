@@ -2,7 +2,7 @@
 import { useState, useCallback } from "react";
 import type { GenApiResponse, MealID, MealImage, MealType, NutritionalInfo } from "@/types/meal/meal";
 
-const API_KEY = process.env.NEXT_PUBLIC_KEY1;
+const API_KEY = process.env.NEXT_PUBLIC_KEY2;
 
 export const useMealGenerate = () => {
     // Meal/nutrition state
@@ -19,6 +19,12 @@ export const useMealGenerate = () => {
     });
 
     const [mealImage, setMealImage] = useState<MealImage>({
+        breakfast: "",
+        lunch: "",
+        dinner: "",
+    });
+
+    const [mealRecipe, setMealRecipe] = useState<MealType>({
         breakfast: "",
         lunch: "",
         dinner: "",
@@ -60,6 +66,14 @@ export const useMealGenerate = () => {
                     dinner: data.meals[2].id
                 })
 
+                console.log("Generated meal data:", data);
+
+                setMealRecipe({
+                    breakfast: data.meals[0].sourceUrl,
+                    lunch: data.meals[1].sourceUrl,
+                    dinner: data.meals[2].sourceUrl,
+                })
+
                 setLastGenereatedParams({ calories, diet });
 
                 return data;
@@ -75,6 +89,7 @@ export const useMealGenerate = () => {
         lastGeneratedParams,
         mealImage,
         mealId,
+        mealRecipe,
         setLastGenereatedParams,
         generateMeals,
         setMealImage

@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import {Button} from "@/components/ui/button"
 import Image from "next/image"
 import React, {ReactNode } from 'react'
 import { ChartModal } from "./chart-modal"
@@ -22,11 +23,12 @@ export interface ChartProps {
 export interface MealSegmentProps {
     mealImage: string;
     mealType: string;
+    mealRecipe: string;
     chartProps: ChartProps;
     isLoading: boolean;
 }
 
-export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSegmentProps ): ReactNode {
+export function DesktopMeal({mealImage, mealType, mealRecipe, chartProps, isLoading}:MealSegmentProps ): ReactNode {
 
     if (isLoading) {
         return (
@@ -64,7 +66,10 @@ export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSeg
                   
                   />
               </CardContent>
-              <CardFooter>
+          <CardFooter>
+              <div
+                  className="flex flex-col md:flex-row justify-between items-center px-2"
+              >
                   {chartProps && (
                       <ChartModal
                           calories={chartProps.calories}
@@ -72,6 +77,14 @@ export function DesktopMeal({mealImage, mealType, chartProps, isLoading}:MealSeg
                           label={chartProps.label}
                       />
                   )}
+                  <Button
+                      className="bg-accent hover:bg-accent-foreground hover:text-input text-primary"
+                  >
+                      <a href={mealRecipe} target="_blank" rel="noopener noreferrer">
+                          View Recipe
+                      </a>
+                  </Button>
+                </div>
               </CardFooter>
           </Card>
   )
