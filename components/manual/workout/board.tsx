@@ -23,7 +23,7 @@ export function Board(): ReactNode {
             <div className="max-w-[1600px] mx-auto space-y-6">
                 {/* Header */}
                 <Hero
-                    title='Weekly Wokout Plan'
+                    title='Weekly Workout Plan'
                     tag='Drag and drop exercises to schedule your week'
                 />
 
