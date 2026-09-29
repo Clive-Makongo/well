@@ -74,7 +74,7 @@ React
 ## License
 MIT License
 
-Copyright (c) 2023 angelica-zach
+Copyright (c) 2023 Clive-Makongo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
