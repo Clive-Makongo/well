@@ -75,6 +75,7 @@ React
 MIT License
 
 Copyright (c) 2023 Clive-Makongo
+based on https://github.com/angelica-zach/wellness-app
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
