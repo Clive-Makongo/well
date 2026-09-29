@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { yoga } from "@/public/assets";
 import Image from "next/image";
 
+
 export default function Home(): ReactNode {
   return (
     <div className="relative w-full h-screen bg-background overflow-hidden flex items-center justify-center">

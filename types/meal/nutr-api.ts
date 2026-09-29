@@ -1,66 +1,82 @@
-interface NutrientDetail {
-    name: string
-    amount: number
-    unit: string
-    percentOfDailyNeeds: number
-}
+import { z } from 'zod';
 
-interface NutritionItem {
-    title: string
-    amount: string
-    indented: boolean
-    percentOfDailyNeeds: number
-}
+// Base schemas (building blocks)
+const NutrientDetailSchema = z.object({
+  name: z.string(),
+  amount: z.number(),
+  unit: z.string(),
+  percentOfDailyNeeds: z.number(),
+});
 
-interface Property {
-    name: string
-    amount: number
-    unit: string
-}
+const NutritionItemSchema = z.object({
+  title: z.string(),
+  amount: z.string(),
+  indented: z.boolean(),
+  percentOfDailyNeeds: z.number(),
+});
 
-interface Flavonoid {
-    name: string
-    amount: number | string
-    unit: string
-}
+const PropertySchema = z.object({
+  name: z.string(),
+  amount: z.number(),
+  unit: z.string(),
+});
 
-interface Ingredient {
-    id: number
-    name: string
-    amount: number
-    unit: string
-    nutrients: NutrientDetail[]
-}
+const FlavonoidSchema = z.object({
+  name: z.string(),
+  amount: z.union([z.number(), z.string()]), // Can be either number or string
+  unit: z.string(),
+});
 
-interface CaloricBreakdown {
-    percentProtein: number
-    percentFat: number
-    percentCarbs: number
-}
+const IngredientSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  amount: z.number(),
+  unit: z.string(),
+  nutrients: z.array(NutrientDetailSchema),
+});
 
-interface WeightPerServing {
-    amount: number
-    unit: string
-}
+const CaloricBreakdownSchema = z.object({
+  percentProtein: z.number(),
+  percentFat: z.number(),
+  percentCarbs: z.number(),
+});
 
-export interface NutritionResponse {
-    calories: string
-    carbs: string
-    fat: string
-    protein: string
-    bad: NutritionItem[]
-    good: NutritionItem[]
-    nutrients: NutrientDetail[]
-    properties: Property[]
-    flavonoids: Flavonoid[]
-    ingredients: Ingredient[]
-    caloricBreakdown: CaloricBreakdown
-    weightPerServing: WeightPerServing
-    expires: number
-}
+const WeightPerServingSchema = z.object({
+  amount: z.number(),
+  unit: z.string(),
+});
 
-export interface PNutritionResponse {
-    breakfast: NutritionResponse | null  
-    lunch: NutritionResponse | null  
-    dinner: NutritionResponse | null  
-}
+// Main nutrition response schema
+export const NutritionResponseSchema = z.object({
+  calories: z.string(),
+  carbs: z.string(),
+  fat: z.string(),
+  protein: z.string(),
+  bad: z.array(NutritionItemSchema),
+  good: z.array(NutritionItemSchema),
+  nutrients: z.array(NutrientDetailSchema),
+  properties: z.array(PropertySchema),
+  flavonoids: z.array(FlavonoidSchema),
+  ingredients: z.array(IngredientSchema),
+  caloricBreakdown: CaloricBreakdownSchema,
+  weightPerServing: WeightPerServingSchema,
+  expires: z.number(),
+});
+
+// Meal-specific nutrition schema
+export const PNutritionResponseSchema = z.object({
+  breakfast: NutritionResponseSchema.nullable(),
+  lunch: NutritionResponseSchema.nullable(),
+  dinner: NutritionResponseSchema.nullable(),
+});
+
+// Infer TypeScript types
+export type NutrientDetail = z.infer<typeof NutrientDetailSchema>;
+export type NutritionItem = z.infer<typeof NutritionItemSchema>;
+export type Property = z.infer<typeof PropertySchema>;
+export type Flavonoid = z.infer<typeof FlavonoidSchema>;
+export type Ingredient = z.infer<typeof IngredientSchema>;
+export type CaloricBreakdown = z.infer<typeof CaloricBreakdownSchema>;
+export type WeightPerServing = z.infer<typeof WeightPerServingSchema>;
+export type NutritionResponse = z.infer<typeof NutritionResponseSchema>;
+export type PNutritionResponse = z.infer<typeof PNutritionResponseSchema>;

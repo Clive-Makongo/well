@@ -1,38 +1,52 @@
 import { NutritionResponse } from "@/types/meal/nutr-api";
+import { z } from 'zod';
 
-export interface MealType {
-    [key: string]: string
-    breakfast: string;
-    lunch: string;
-    dinner: string;
-}
+// Base schemas
+export const NutritionalInfoSchema = z.object({
+  calories: z.number(),
+  carbohydrates: z.number(),
+  fat: z.number(),
+  protein: z.number(),
+});
 
-export interface NutritionalInfo {
-    calories: number;
-    carbohydrates: number;
-    fat: number;
-    protein: number;
-}
+export const MealTypeSchema = z.object({
+  breakfast: z.string(),
+  lunch: z.string(),
+  dinner: z.string(),
+}).catchall(z.string()); // Allows additional string properties
 
-export interface MealImage {
-    breakfast: string;
-    lunch: string;
-    dinner: string;
-}
+export const MealImageSchema = z.object({
+  breakfast: z.string(),
+  lunch: z.string(),
+  dinner: z.string(),
+});
 
-export interface MealID {
-    breakfast: number | null;
-    lunch: number | null;
-    dinner: number | null;
-}
+export const MealIDSchema = z.object({
+  breakfast: z.number().nullable(),
+  lunch: z.number().nullable(),
+  dinner: z.number().nullable(),
+});
 
-export interface GenApiResponse {
-    meals: { title: string; sourceUrl: string }[];
-    nutrients: NutritionalInfo;
-}
+export const GenApiResponseSchema = z.object({
+  meals: z.array(
+    z.object({
+      title: z.string(),
+      sourceUrl: z.string(),
+    })
+  ),
+  nutrients: NutritionalInfoSchema,
+});
 
-export interface MealNutrition {
-    breakfast: NutritionResponse | null;
-    lunch: NutritionResponse | null;
-    dinner: NutritionResponse | null;
-}
+export const MealNutritionSchema = z.object({
+  breakfast: z.custom<NutritionResponse>().nullable(),
+  lunch: z.custom<NutritionResponse>().nullable(),
+  dinner: z.custom<NutritionResponse>().nullable(),
+});
+
+// Infer TypeScript types from schemas
+export type NutritionalInfo = z.infer<typeof NutritionalInfoSchema>;
+export type MealType = z.infer<typeof MealTypeSchema>;
+export type MealImage = z.infer<typeof MealImageSchema>;
+export type MealID = z.infer<typeof MealIDSchema>;
+export type GenApiResponse = z.infer<typeof GenApiResponseSchema>;
+export type MealNutrition = z.infer<typeof MealNutritionSchema>;
